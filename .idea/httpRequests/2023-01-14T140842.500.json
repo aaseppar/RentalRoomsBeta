@@ -1,0 +1,6 @@
+{
+  "timestamp": "2023-01-14T10:08:42.475+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "path": "/booking"
+}

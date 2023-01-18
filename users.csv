@@ -1,0 +1,8 @@
+id,fullname,country,city,login,passwd,birthday,email,rating
+1,Kim Gaon,Israel,Haifa,kim,1234,12.06.1978,kim@gmail.is,3
+2,Sean Konnor,USA,Baltimor,sean,123456,16.08.1963,sean@hotmail.us,4
+3,Bruce Lee,China,Harbin,bruce,4321,11.09.1983,bruce@china.ch,3
+4,Stoiko Pashev,Bulgary,Plovdiv,stoiko,567,15.07.2001,stoiko@bulgary.bu,5
+5,Sergey Kuzmin,Russia,Samara,sergey,23456,19.05.1987,sergey@mail.ru,4
+6,Ken Robin,Poland,Gdansk,ken,234567,09.04.1984,ken@rambler.po,3
+7,Tikki Puitanen,Finland,Burrita,tik,567432,09.02.1969,tik@nokia.fn,4

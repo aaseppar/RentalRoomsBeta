@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "beginterm": "2023-02-05T20:00:00.000+00:00",
+    "endterm": "2023-08-05T20:00:00.000+00:00",
+    "price": 12000,
+    "client": {
+      "id": 1,
+      "userfullname": "Sara Connor",
+      "login": "sara",
+      "passwd": "sarasara",
+      "birthday": "09.09.1978",
+      "email": "sara@gmail.com",
+      "city": {
+        "id": 1,
+        "name": "Boston",
+        "country": {
+          "id": 1,
+          "name": "USA"
+        }
+      },
+      "rating": {
+        "id": 3,
+        "value": 3
+      }
+    }
+  },
+  {
+    "id": 2,
+    "beginterm": "2023-03-06T20:00:00.000+00:00",
+    "endterm": "2023-04-07T20:00:00.000+00:00",
+    "price": 16000,
+    "client": {
+      "id": 2,
+      "userfullname": "George Maikl",
+      "login": "georg",
+      "passwd": "gerger",
+      "birthday": "08.08.1977",
+      "email": "georg@rambler.ru",
+      "city": {
+        "id": 1,
+        "name": "Boston",
+        "country": {
+          "id": 1,
+          "name": "USA"
+        }
+      },
+      "rating": {
+        "id": 3,
+        "value": 3
+      }
+    }
+  },
+  {
+    "id": 3,
+    "beginterm": "2023-05-07T20:00:00.000+00:00",
+    "endterm": "2023-05-08T20:00:00.000+00:00",
+    "price": 21000,
+    "client": {
+      "id": 3,
+      "userfullname": "Bob Stivens",
+      "login": "bob",
+      "passwd": "bobbob",
+      "birthday": "07.07.1983",
+      "email": "bob@samemail.us",
+      "city": {
+        "id": 1,
+        "name": "Boston",
+        "country": {
+          "id": 1,
+          "name": "USA"
+        }
+      },
+      "rating": {
+        "id": 3,
+        "value": 3
+      }
+    }
+  }
+]
