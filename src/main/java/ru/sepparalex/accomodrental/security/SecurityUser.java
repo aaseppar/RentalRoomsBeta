@@ -1,10 +1,9 @@
 package ru.sepparalex.accomodrental.security;
-import ru.sepparalex.accomodrental.models.Role;
-import ru.sepparalex.accomodrental.models.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ru.sepparalex.accomodrental.models.Client;
 
 import java.util.Collection;
 import java.util.Set;
@@ -54,7 +53,7 @@ public class SecurityUser implements UserDetails {
         return isActive;
     }
 
-    public static UserDetails fromUser(User user) {
+    public static UserDetails fromUser(Client user) {
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(), user.getPassword(),
                 true,

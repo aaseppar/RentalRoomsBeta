@@ -19,7 +19,7 @@ public class Rooms {
    @Column(name="flagFree")
    private int flagfree;
    @ManyToOne
-   @JoinColumn(name = "clientyid",referencedColumnName = "id")
+   @JoinColumn(name = "clientid",referencedColumnName = "id")
    private Client client;
    @ManyToOne
    @JoinColumn(name = "cityid",referencedColumnName = "id")

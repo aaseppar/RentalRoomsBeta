@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,11 +22,20 @@ public class Client {
     @Column(name="login")
     private String login;
     @Column(name="passwd")
-    private String passwd;
+    private String password;
     @Column(name="birthday")
     private String birthday;
     @Column(name="email")
     private String email;
+
+    @Column(name = "role")
+    @Enumerated(value=EnumType.STRING)
+    private Role role;
+
+    @Column(name = "status")
+    @Enumerated(value=EnumType.STRING)
+    private Status status;
+
     @OneToMany(mappedBy = "client")
     @JsonIgnore
     private List<Booking> listBooking;
@@ -45,7 +53,7 @@ public class Client {
     public Client(String userfullname, String login, String passwd, String birthday, String email) {
         this.userfullname = userfullname;
         this.login = login;
-        this.passwd = passwd;
+        this.password = passwd;
         this.birthday = birthday;
         this.email = email;
 
