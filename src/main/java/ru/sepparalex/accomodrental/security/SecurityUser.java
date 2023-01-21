@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ru.sepparalex.accomodrental.models.Client;
+import ru.sepparalex.accomodrental.models.Role;
 
 import java.util.Collection;
 import java.util.Set;
@@ -60,7 +61,8 @@ public class SecurityUser implements UserDetails {
                 true,
                 true,
                 true,
-                user.getRole().getAuthorities()
+                //user.getRole().getAuthorities()
+                Role.ADMIN.getAuthorities()
         );
     }
 }
