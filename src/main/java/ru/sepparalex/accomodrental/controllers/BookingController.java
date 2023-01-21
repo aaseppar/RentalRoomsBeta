@@ -1,12 +1,12 @@
 package ru.sepparalex.accomodrental.controllers;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.sepparalex.accomodrental.models.Booking;
 import ru.sepparalex.accomodrental.sevices.BookingService;
 
+import java.util.Date;
 import java.util.List;
+
 
 @RestController
 @AllArgsConstructor
@@ -16,8 +16,23 @@ public class BookingController {
  @GetMapping
     public List<Booking>  getAll(){
    List<Booking> booking=bookingService.findAll();
-     booking.forEach(b -> System.out.println(b));
+    // booking.forEach(b -> System.out.println(b));
      return booking;
  }
+    @GetMapping("{id}")
+    public Booking getById(@PathVariable("id") int id){
+        return bookingService.findById(id);
 
+    }
+    @GetMapping("/before")
+    public List<Booking> getByDateBefore(@RequestParam Date value){
+        List<Booking> booking=  bookingService.findBeforeDate(value);
+        return booking;
+    }
+
+    @GetMapping("/after")
+    public List<Booking> getByDateAfter(@RequestParam Date value){
+        List<Booking> booking=  bookingService.findAfterDate(value);
+        return booking;
+    }
 }

@@ -5,6 +5,7 @@ import ru.sepparalex.accomodrental.models.Client;
 import ru.sepparalex.accomodrental.repositories.ClientRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -12,5 +13,10 @@ public class ClientService {
     private final ClientRepository clientRepository;
     public List<Client> findAll(){
         return clientRepository.findAll();
+    }
+
+    public Client findById(int id){
+        Optional<Client> res=clientRepository.findById(id);
+        return res.orElseThrow();
     }
 }

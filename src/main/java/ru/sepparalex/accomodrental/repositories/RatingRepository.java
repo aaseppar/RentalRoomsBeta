@@ -1,9 +1,9 @@
 package ru.sepparalex.accomodrental.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import ru.sepparalex.accomodrental.models.Rating;
 
-import java.util.List;
-
+@Repository
 public interface RatingRepository extends JpaRepository<Rating,Integer> {
-    List<Rating> findAll();
+
 }

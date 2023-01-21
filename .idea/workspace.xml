@@ -4,12 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Was changed Role.java class">
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Sara Connor is working!">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e/storage_v2/_src_/database/rentalRooms.NMSAPg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e/storage_v2/_src_/database/rentalRooms.NMSAPg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/security/SecurityUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/security/SecurityUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/security/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/security/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/BookingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/BookingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/CityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/CountryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/CountryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RatingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RatingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RoomsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RoomsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/sevices/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/sevices/BookingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/sevices/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/sevices/ClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +86,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Java_Learn/Lessons/Lesson_150123_TestingSystemSecurity/testing_system-master&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.45057473&quot;,
@@ -182,7 +192,11 @@
       <workItem from="1674148203328" duration="2152000" />
       <workItem from="1674151188752" duration="1054000" />
       <workItem from="1674276314316" duration="6900000" />
-      <workItem from="1674283820568" duration="368000" />
+      <workItem from="1674283820568" duration="467000" />
+      <workItem from="1674290902756" duration="2707000" />
+      <workItem from="1674294770314" duration="653000" />
+      <workItem from="1674307782159" duration="5148000" />
+      <workItem from="1674324352072" duration="3829000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -240,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674280709937</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Sara Connor is working!">
+      <created>1674284234864</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1674284234864</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +285,7 @@
     <MESSAGE value="Was added security" />
     <MESSAGE value="Was change gitignore file" />
     <MESSAGE value="Was changed Role.java class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Was changed Role.java class" />
+    <MESSAGE value="Sara Connor is working!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sara Connor is working!" />
   </component>
 </project>

@@ -26,7 +26,7 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "clientid",referencedColumnName = "id")
-    private Client client=new Client();
+    private Client client;
 
     @OneToMany(mappedBy="booking")
     @JsonIgnore
