@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking,Integer> {
-List<Booking> findByStartDateBefore(Date value);
-List<Booking>  findByStartDateAfter(Date value);
+List<Booking> findByEndtermBefore(Date value);
+List<Booking>  findByBegintermAfter(Date value);
 }

@@ -21,10 +21,12 @@ public class BookingService {
     }
 
     public List<Booking> findBeforeDate(Date value) {
-        return bookingRepository.findByStartDateBefore(value);
+        return bookingRepository.findByEndtermBefore(value);
     }
 
+
     public List<Booking> findAfterDate(Date value) {
-        return bookingRepository.findByStartDateAfter(value);
+       return bookingRepository.findByBegintermAfter(value);
+
     }
 }

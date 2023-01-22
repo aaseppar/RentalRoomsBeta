@@ -1,5 +1,6 @@
 package ru.sepparalex.accomodrental.controllers;
 import lombok.AllArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import ru.sepparalex.accomodrental.models.Booking;
 import ru.sepparalex.accomodrental.sevices.BookingService;
@@ -25,13 +26,13 @@ public class BookingController {
 
     }
     @GetMapping("/before")
-    public List<Booking> getByDateBefore(@RequestParam Date value){
+    public List<Booking> getByDateBefore(@RequestParam ("value") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)Date value){
         List<Booking> booking=  bookingService.findBeforeDate(value);
         return booking;
     }
 
     @GetMapping("/after")
-    public List<Booking> getByDateAfter(@RequestParam Date value){
+    public List<Booking> getByDateAfter(@RequestParam ("value") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)Date value){
         List<Booking> booking=  bookingService.findAfterDate(value);
         return booking;
     }
