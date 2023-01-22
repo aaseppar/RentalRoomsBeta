@@ -61,8 +61,8 @@ public class SecurityUser implements UserDetails {
                 true,
                 true,
                 true,
-                //user.getRole().getAuthorities()
-                Role.ADMIN.getAuthorities()
+                user.getRole().getAuthorities()
+                //Role.ADMIN.getAuthorities()
         );
     }
 }
