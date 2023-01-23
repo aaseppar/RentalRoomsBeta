@@ -51,7 +51,7 @@ public class Client {
     private Rating rating;
 
     public Client(String userfullname, String login, String passwd, String birthday, String email,
-    String role,String status,City city,Rating rating) {
+    String role,String status) {
         this.userfullname = userfullname;
         this.login = login;
         this.password = passwd;
@@ -59,9 +59,6 @@ public class Client {
         this.email = email;
         this.role = Role.valueOf(role);
         this.status = Status.valueOf(status);
-        this.city = city;
-        this.rating= rating;
-
     }
 
 }

@@ -29,7 +29,7 @@ public class City {
     @JsonIgnore
     private List<Client> clientList;
 
-    public City(int id, String name) {
+    public City(String name) {
         this.id = id;
         this.name = name;
     }

@@ -19,13 +19,13 @@ public class Country {
     @Column(name="name")
     private String name;
 
-    public Country(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
     @OneToMany(mappedBy="country")
     @JsonIgnore
     private List<City> cityList;
+    public Country(String name) {
+       this.name = name;
+    }
+
+
 
 }

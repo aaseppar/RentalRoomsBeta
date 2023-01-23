@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add before/after condition in request">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e/storage_v2/_src_/database/rentalRooms.NMSAPg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e/storage_v2/_src_/database/rentalRooms.NMSAPg/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add @PreAuthorize">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Rating.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Rooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Rooms.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/security/SecurityUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/security/SecurityUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/sevices/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/sevices/BookingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +196,9 @@
       <workItem from="1674364767371" duration="6115000" />
       <workItem from="1674377566574" duration="45000" />
       <workItem from="1674377828798" duration="2488000" />
-      <workItem from="1674389986301" duration="4369000" />
+      <workItem from="1674389986301" duration="5118000" />
+      <workItem from="1674396045274" duration="431000" />
+      <workItem from="1674490826725" duration="8061000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -273,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674369629770</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add @PreAuthorize">
+      <created>1674394684548</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1674394684548</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +311,7 @@
     <MESSAGE value="Sara Connor is working!" />
     <MESSAGE value="Add some GetMapping" />
     <MESSAGE value="Add before/after condition in request" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add before/after condition in request" />
+    <MESSAGE value="Add @PreAuthorize" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add @PreAuthorize" />
   </component>
 </project>

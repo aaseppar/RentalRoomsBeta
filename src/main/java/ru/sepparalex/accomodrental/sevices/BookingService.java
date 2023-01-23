@@ -19,14 +19,14 @@ public class BookingService {
         Optional <Booking> res=bookingRepository.findById(id);
         return res.orElseThrow();
     }
-
     public List<Booking> findBeforeDate(Date value) {
         return bookingRepository.findByEndtermBefore(value);
     }
-
-
     public List<Booking> findAfterDate(Date value) {
        return bookingRepository.findByBegintermAfter(value);
 
+    }
+    public void save(Booking booking) {
+        bookingRepository.save(booking);
     }
 }

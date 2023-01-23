@@ -6,7 +6,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.*;
 
-
 @Entity
 @NoArgsConstructor
 @Setter
@@ -14,7 +13,7 @@ import java.util.*;
 @Table(name="booking")
 public class Booking {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
     @Column(name="beginterm")
@@ -32,11 +31,12 @@ public class Booking {
     @JsonIgnore
     private List<Rooms> roomsList;
 
-    public Booking(int id, Date beginterm, Date endterm, int price, Client client, List<Rooms> roomsList) {
-        this.id = id;
+    public Booking(int id,Date beginterm, Date endterm, int price,Client client) {
+        this.id=id;
         this.beginterm = beginterm;
         this.endterm = endterm;
         this.price = price;
+        this.client=client;
      }
 
     @Override

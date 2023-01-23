@@ -22,8 +22,7 @@ public class Rating {
     @JsonIgnore
     private List<Client> clientList;
 
-    public Rating(int id, int value) {
-        this.id = id;
-        this.value = value;
+    public Rating(int value) {
+     this.value = value;
     }
 }

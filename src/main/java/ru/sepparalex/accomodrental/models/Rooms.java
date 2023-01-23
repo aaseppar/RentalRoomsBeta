@@ -28,8 +28,7 @@ public class Rooms {
    @JoinColumn(name = "bookingid",referencedColumnName = "id")
    private Booking booking;
 
-   public Rooms(int id, int rating, int flagfree) {
-      this.id = id;
+   public Rooms(int rating, int flagfree) {
       this.rating = rating;
       this.flagfree = flagfree;
    }

@@ -19,13 +19,12 @@ public class BookingController {
  @PreAuthorize("hasAnyAuthority('booking:read')")
     public List<Booking>  getAll(){
    List<Booking> booking=bookingService.findAll();
-     //booking.forEach(b -> System.out.println(b));
-     return booking;
+   return booking;
  }
     @GetMapping("{id}")
     @PreAuthorize("hasAnyAuthority('booking:read')")
     public Booking getById(@PathVariable("id") int id){
-        return bookingService.findById(id);
+    return bookingService.findById(id);
 
     }
     @GetMapping("/before")
@@ -40,5 +39,11 @@ public class BookingController {
     public List<Booking> getByDateAfter(@RequestParam ("value") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)Date value){
         List<Booking> booking=  bookingService.findAfterDate(value);
         return booking;
+    }
+    @PostMapping
+    @PreAuthorize("hasAnyAuthority('booking:write')")
+    public Booking createBooking(@RequestBody Booking booking){
+        bookingService.save(booking);
+       return booking ;
     }
 }
