@@ -1,6 +1,7 @@
 package ru.sepparalex.accomodrental.sevices;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.sepparalex.accomodrental.models.Booking;
 import ru.sepparalex.accomodrental.models.Client;
 import ru.sepparalex.accomodrental.repositories.ClientRepository;
 
@@ -18,5 +19,9 @@ public class ClientService {
     public Client findById(int id){
         Optional<Client> res=clientRepository.findById(id);
         return res.orElseThrow();
+    }
+
+    public void save(Client client) {
+        clientRepository.save(client);
     }
 }

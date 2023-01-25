@@ -18,7 +18,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="AccomodRental" value="c4ad3352-0e03-42f3-81ba-d1a88de3fd7e" />
+          <factory-entry name="AccomodRental" value="294b0222-a859-43d3-8c42-f844aa2f359e" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

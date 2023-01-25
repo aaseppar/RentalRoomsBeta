@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: 'jdbc:postgresql://localhost:5432/rentalRooms'
+    url: 'jdbc:postgresql://localhost:5432/RentalRooms'
     username: postgres
     password: rootroot
   jpa:
