@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add POST REQUEST for Booking">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e/storage_v2/_src_/database/rentalRooms.NMSAPg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e/storage_v2/_src_/database/rentalRooms.NMSAPg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e/storage_v2/_src_/database/rentalRooms.NMSAPg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4ad3352-0e03-42f3-81ba-d1a88de3fd7e/storage_v2/_src_/database/rentalRooms.NMSAPg/schema/public.abK9xQ.meta" beforeDir="false" />
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add POST Request for Client">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccomodRental.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AccomodRental.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/sevices/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/sevices/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Rooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Rooms.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +195,8 @@
       <workItem from="1674490826725" duration="8120000" />
       <workItem from="1674577414630" duration="1208000" />
       <workItem from="1674589368399" duration="340000" />
-      <workItem from="1674663303857" duration="5046000" />
+      <workItem from="1674663303857" duration="5108000" />
+      <workItem from="1674751528621" duration="6887000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -295,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674500491749</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add POST Request for Client">
+      <created>1674668759607</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1674668759607</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +325,7 @@
     <MESSAGE value="Add before/after condition in request" />
     <MESSAGE value="Add @PreAuthorize" />
     <MESSAGE value="Add POST REQUEST for Booking" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add POST REQUEST for Booking" />
+    <MESSAGE value="Add POST Request for Client" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add POST Request for Client" />
   </component>
 </project>
