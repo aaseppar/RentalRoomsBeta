@@ -12,4 +12,12 @@ public class RoomsService {
     public List<Rooms> findAll(){
         return roomsRepository.findAll();
     }
+
+    public List<Rooms> findByCity(String name) {
+        return roomsRepository.findByNameIgnoreCaseOrderByNameAsc(name);
+    }
+
+    public List<Rooms> findByCountry(String name) {
+        return roomsRepository.findByNameIgnoreCase(name);
+    }
 }
