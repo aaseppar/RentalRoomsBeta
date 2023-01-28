@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add GET mapping for search rooms by city name">
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add GET mapping for search rooms by date and price">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/RoomsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/RoomsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RoomsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RoomsRepository.java" afterDir="false" />
@@ -198,7 +198,7 @@
       <workItem from="1674663303857" duration="5108000" />
       <workItem from="1674751528621" duration="7188000" />
       <workItem from="1674836265087" duration="13382000" />
-      <workItem from="1674882176802" duration="2885000" />
+      <workItem from="1674882176802" duration="3948000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -312,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674882317389</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add GET mapping for search rooms by date and price">
+      <created>1674885390637</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1674885390637</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,6 +351,7 @@
     <MESSAGE value="Add POST Request for Client" />
     <MESSAGE value="Add PATCH for change client's status" />
     <MESSAGE value="Add GET mapping for search rooms by city name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add GET mapping for search rooms by city name" />
+    <MESSAGE value="Add GET mapping for search rooms by date and price" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add GET mapping for search rooms by date and price" />
   </component>
 </project>

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.sepparalex.accomodrental.models.Booking;
 import ru.sepparalex.accomodrental.models.Rooms;
 import ru.sepparalex.accomodrental.sevices.RoomsService;
 
@@ -33,7 +32,7 @@ public class RoomsController {
     @GetMapping("/coutry")
     @PreAuthorize("hasAnyAuthority('rooms:read')")
     public List<Rooms> getByCountry(@RequestParam("name") String name){
-        List<Rooms> rooms=  roomsService.findByCountry(name);
+        List<Rooms> rooms=  roomsService.findByCountryName(name);
         return rooms;
     }
     @GetMapping("/rating/")

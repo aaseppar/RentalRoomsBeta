@@ -20,8 +20,8 @@ public class RoomsService {
         return roomsRepository.findByNameIgnoreCaseOrderByNameAsc(name);
     }
 
-    public List<Rooms> findByCountry(String name) {
-        return roomsRepository.findByNameIgnoreCase(name);
+    public List<Rooms> findByCountryName(String name) {
+        return roomsRepository.findByCountryNameIgnoreCase(name);
     }
 
     public List<Rooms> findByRating(Integer rating) {

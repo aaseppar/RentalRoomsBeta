@@ -18,17 +18,18 @@ import java.util.List;
 public interface RoomsRepository extends JpaRepository<Rooms,Integer> {
    @Query("select r from Rooms r where r.city.name = ?1")
    List<Rooms> findByNameIgnoreCaseOrderByNameAsc(String name);
-   //@Query("select r from Rooms r where r.city.country.name=?1")
-   //List<Rooms> findByNameIgnoreCase(String name);
-   @PersistenceUnit
-   EntityManagerFactory emf = null;
+   @Query("select r from Rooms r where r.city.country.name=?1")
+   List<Rooms> findByCountryNameIgnoreCase(String name);
 
-   default List<Rooms> findByNameIgnoreCase(String name) {
-      EntityManager em = emf.createEntityManager();
-      List<Rooms> rooms = (List<Rooms>) em.createQuery("SELECT r FROM Rooms r join City c on r.city.id=c.id " +
-                      "join Country co on c.country.id = co.id where co.name=?1").setParameter(1,name).getResultList();
-      return rooms;
-   }
+//   @PersistenceUnit
+//   EntityManagerFactory emf = null;
+//
+//   default List<Rooms> findByNameIgnoreCase(String name) {
+//      EntityManager em = emf.createEntityManager();
+//      List<Rooms> rooms = (List<Rooms>) em.createQuery("SELECT r FROM Rooms r join City c on r.city.id=c.id " +
+//                      "join Country co on c.country.id = co.id where co.name=?1").setParameter(1,name).getResultList();
+//      return rooms;
+//   }
 
    List<Rooms> findByRating(Integer rating);
    @Query("select r from Rooms r where r.booking.price = ?1")
