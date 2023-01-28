@@ -36,4 +36,30 @@ public class RoomsController {
         List<Rooms> rooms=  roomsService.findByCountry(name);
         return rooms;
     }
+    @GetMapping("/rating/")
+    @PreAuthorize("hasAnyAuthority('rooms:read')")
+    public List<Rooms> getByCity(@RequestParam("rating") Integer rating){
+        List<Rooms> rooms=  roomsService.findByRating(rating);
+        return rooms;
+    }
+    @GetMapping("/booking")
+    @PreAuthorize("hasAnyAuthority('rooms:read')")
+    public List<Rooms> getByCountry(@RequestParam("price") Integer price){
+        List<Rooms> rooms=  roomsService.findByPrice(price);
+        return rooms;
+    }
+    @GetMapping("/before")
+    @PreAuthorize("hasAnyAuthority('rooms:read')")
+    public List<Rooms> getByDateBefore(@RequestParam ("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) Date date){
+        List<Rooms> rooms=  roomsService.findBeforeDate(date);
+        return rooms;
+    }
+    @GetMapping("/after")
+    @PreAuthorize("hasAnyAuthority('rooms:read')")
+    public List<Rooms> getByDateAfter(@RequestParam ("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) Date date){
+        List<Rooms> rooms=  roomsService.findAfterDate(date);
+        return rooms;
+    }
+
+
 }

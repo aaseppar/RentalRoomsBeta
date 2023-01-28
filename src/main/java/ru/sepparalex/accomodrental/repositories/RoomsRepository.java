@@ -2,11 +2,13 @@ package ru.sepparalex.accomodrental.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import ru.sepparalex.accomodrental.models.Booking;
 import ru.sepparalex.accomodrental.models.Rooms;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
+import java.util.Date;
 import java.util.List;
 
 
@@ -27,4 +29,13 @@ public interface RoomsRepository extends JpaRepository<Rooms,Integer> {
                       "join Country co on c.country.id = co.id where co.name=?1").setParameter(1,name).getResultList();
       return rooms;
    }
+
+   List<Rooms> findByRating(Integer rating);
+   @Query("select r from Rooms r where r.booking.price = ?1")
+   List<Rooms> findByBookingPrice(Integer price);
+   @Query("select r from Rooms r where r.booking.beginterm <= ?1")
+   List<Rooms> findBeforeDate(Date date);
+   @Query("select r from Rooms r where r.booking.endterm >= ?1")
+   List<Rooms> findAfterDate(Date date);
+
 }
