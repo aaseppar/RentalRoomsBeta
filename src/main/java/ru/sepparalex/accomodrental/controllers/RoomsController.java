@@ -29,7 +29,7 @@ public class RoomsController {
         List<Rooms> rooms=  roomsService.findByCity(name);
         return rooms;
     }
-    @GetMapping("/coutry")
+    @GetMapping("/country")
     @PreAuthorize("hasAnyAuthority('rooms:read')")
     public List<Rooms> getByCountry(@RequestParam("name") String name){
         List<Rooms> rooms=  roomsService.findByCountryName(name);

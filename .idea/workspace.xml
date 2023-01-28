@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add GET mapping for search rooms by date and price">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add GET mapping rooms by country, bat not working, WTF?">
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/RoomsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/RoomsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RoomsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RoomsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/sevices/RoomsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/sevices/RoomsService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +195,7 @@
       <workItem from="1674663303857" duration="5108000" />
       <workItem from="1674751528621" duration="7188000" />
       <workItem from="1674836265087" duration="13382000" />
-      <workItem from="1674882176802" duration="3948000" />
+      <workItem from="1674882176802" duration="4307000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -319,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674885390637</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Add GET mapping rooms by country, bat not working, WTF?">
+      <created>1674886383452</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1674886383452</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,6 +356,7 @@
     <MESSAGE value="Add PATCH for change client's status" />
     <MESSAGE value="Add GET mapping for search rooms by city name" />
     <MESSAGE value="Add GET mapping for search rooms by date and price" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add GET mapping for search rooms by date and price" />
+    <MESSAGE value="Add GET mapping rooms by country, bat not working, WTF?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add GET mapping rooms by country, bat not working, WTF?" />
   </component>
 </project>
