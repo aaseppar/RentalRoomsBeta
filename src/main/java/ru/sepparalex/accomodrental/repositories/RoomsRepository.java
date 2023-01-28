@@ -4,16 +4,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import ru.sepparalex.accomodrental.models.Booking;
 import ru.sepparalex.accomodrental.models.Rooms;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import java.util.Date;
 import java.util.List;
-
-
-
-
 @Repository
 public interface RoomsRepository extends JpaRepository<Rooms,Integer> {
    @Query("select r from Rooms r where r.city.name = ?1")
