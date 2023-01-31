@@ -5,9 +5,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public enum Role {
-    USER(Set.of(Permission.CLIENT_WRITE,Permission.BOOKING_WRITE,Permission.ROOMS_READ,Permission.ROOMS_WRITE)),
+    USER(Set.of(Permission.CLIENT_WRITE,Permission.BOOKING_WRITE,Permission.ROOMS_READ,Permission.ROOMS_WRITE,Permission.CITY_READ)),
     ADMIN(Set.of(Permission.CLIENT_READ, Permission.CLIENT_WRITE,Permission.BOOKING_WRITE,
-            Permission.BOOKING_READ,Permission.ROOMS_READ, Permission.ROOMS_WRITE));
+            Permission.BOOKING_READ,Permission.ROOMS_READ, Permission.ROOMS_WRITE,Permission.CITY_READ,Permission.CITY_WRITE));
 
     private final Set<Permission> permissions;
 

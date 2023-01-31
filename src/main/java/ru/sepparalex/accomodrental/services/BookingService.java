@@ -1,4 +1,4 @@
-package ru.sepparalex.accomodrental.sevices;
+package ru.sepparalex.accomodrental.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.sepparalex.accomodrental.models.Booking;

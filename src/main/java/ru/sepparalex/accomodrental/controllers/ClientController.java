@@ -4,7 +4,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.sepparalex.accomodrental.models.Client;
 import ru.sepparalex.accomodrental.models.Status;
-import ru.sepparalex.accomodrental.sevices.ClientService;
+import ru.sepparalex.accomodrental.services.ClientService;
 
 import java.util.List;
 
@@ -28,10 +28,8 @@ public class ClientController {
     @PostMapping
     @PreAuthorize("hasAnyAuthority('client:write')")
         public Client createClient(@RequestBody Client client){
-        int clientToCreateId=client.getId();
-        clientService.save(client);
-        Client clientToCreate=  clientService.findById(clientToCreateId);
-        return clientToCreate ;
+        return clientService.save(client);
+
     }
     @PatchMapping("/{id}/{email}")
     @PreAuthorize("hasAnyAuthority('client:write')")

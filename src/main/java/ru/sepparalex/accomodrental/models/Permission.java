@@ -7,7 +7,9 @@ public enum Permission {
     BOOKING_WRITE("booking:write"),
     ROOMS_READ("rooms:read"),
 
-    ROOMS_WRITE("rooms:write");
+    ROOMS_WRITE("rooms:write"),
+    CITY_WRITE("city:write"),
+    CITY_READ("city:read");
     private final String permission;
 
     Permission(String permission) {

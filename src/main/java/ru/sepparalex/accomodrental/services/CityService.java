@@ -1,4 +1,4 @@
-package ru.sepparalex.accomodrental.sevices;
+package ru.sepparalex.accomodrental.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.sepparalex.accomodrental.models.City;
@@ -13,5 +13,14 @@ public class CityService {
 
     public List<City> findAll(){
         return cityRepository.findAll();
+    }
+
+    public City findByName(String name) {
+       return cityRepository.findByName(name);
+    }
+
+
+    public City save(City city) {
+        return cityRepository.save(city);
     }
 }

@@ -4,7 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.sepparalex.accomodrental.models.Booking;
-import ru.sepparalex.accomodrental.sevices.BookingService;
+import ru.sepparalex.accomodrental.services.BookingService;
 
 import java.util.Date;
 import java.util.List;
