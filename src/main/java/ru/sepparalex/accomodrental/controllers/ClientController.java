@@ -26,7 +26,7 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) and hasAuthority('client:create')")
+    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) or hasAuthority('client:create')")
         public Client createClient(@RequestBody Client client){
         return clientService.save(client,0);
 
@@ -39,9 +39,10 @@ public class ClientController {
         return clientService.save(client,3);
 
     }
-    @PatchMapping("/{id}/{clientId}/role/")
-    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) and hasAuthority('client:set_role')")
-    public Client patchClientRole(@PathVariable("clientId") int clientId,@RequestParam(name="role",required = true) Role role) {
+    //@PatchMapping("/{id}/role/")
+    @PatchMapping("/{id}/")
+    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) or hasAuthority('client:set_role')")
+    public Client patchClientRole(@PathVariable("id") int id,@RequestParam(name="clientId",required = true) int clientId,@RequestParam(name="role",required = true) Role role) {
         Client client=clientService.findById(clientId);
         client.setRole(role);
         return clientService.save(client,4);
