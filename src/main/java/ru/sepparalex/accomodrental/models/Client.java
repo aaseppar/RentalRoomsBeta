@@ -50,15 +50,12 @@ public class Client {
     @JoinColumn(name = "ratingid",referencedColumnName = "id")
     private Rating rating;
 
-    public Client(String userfullname, String login, String passwd, String birthday, String email,
-    String role,String status) {
+    public Client(String userfullname, String login, String passwd, String birthday, String email) {
         this.userfullname = userfullname;
         this.login = login;
         this.password = passwd;
         this.birthday = birthday;
         this.email = email;
-        this.role = Role.valueOf(role);
-        this.status = Status.valueOf(status);
     }
 
 }

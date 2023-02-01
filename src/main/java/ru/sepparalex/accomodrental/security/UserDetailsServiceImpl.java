@@ -1,5 +1,6 @@
 package ru.sepparalex.accomodrental.security;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,5 +23,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Client client = clientRepository.findByEmail(username).orElseThrow(() ->
                 new UsernameNotFoundException("Client does not exist!"));
         return SecurityUser.fromUser(client);
+    }
+    //Authentication-информация о текущем клиенте
+    public boolean hasUserId(Authentication authentication, int userId) {
+        Client client = clientRepository.findByEmail(authentication.getName()).orElseThrow();
+        return client.getId() == userId;
+    }
+    public boolean hasNoUserId(Authentication authentication, int userId) {
+        Client client = clientRepository.findByEmail(authentication.getName()).orElseThrow();
+        return client.getId() != userId;
     }
 }

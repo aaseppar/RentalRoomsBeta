@@ -3,6 +3,8 @@ package ru.sepparalex.accomodrental.models;
 public enum Permission {
     CLIENT_READ("client:read"),
     CLIENT_WRITE("client:write"),
+    CLIENT_CREATE("client:write"),
+    CLIENT_SET_ROLE("client:set_role"),
     BOOKING_READ("booking:read"),
     BOOKING_WRITE("booking:write"),
     ROOMS_READ("rooms:read"),

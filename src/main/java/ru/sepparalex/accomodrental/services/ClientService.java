@@ -25,26 +25,28 @@ public class ClientService {
         return res.orElseThrow();
     }
     @Transactional
-    public Client save(Client client){
-        AtomicInteger flagExistEmail= new AtomicInteger();
-        List<Client> clients = clientRepository.findAll();
+    public Client save(Client client,int flagChange){
+       if(flagChange==0)
+       {
+         AtomicInteger flagExistEmail= new AtomicInteger(0);
+         List<Client> clients = clientRepository.findAll();
         clients.forEach(c->{if(c.getEmail().equals(client.getEmail())){
             flagExistEmail.set(1);}
         });
+           System.out.println(flagExistEmail.get());
         if(flagExistEmail.get()==1) {
             System.out.println(String.format("This email=%s already exist! Input another email.",client.getEmail()));
         return null;
         }
+       }
 
      AtomicInteger flagEqualsCityIDAndName= new AtomicInteger();
      List<City> cities = cityService.findAll();
      cities.forEach(c->{if((c.getId()==client.getCity().getId())&&(c.getName().equals(client.getCity().getName()))){
          flagEqualsCityIDAndName.set(1);}
      });
-     if(flagEqualsCityIDAndName.get()==1) {
-       return clientRepository.save(client);
-     }
-     else {
+
+       if(flagEqualsCityIDAndName.get()!=1){
           cities.forEach(c->{
           if((c.getName().equals(client.getCity().getName()))&&(c.getId()!=client.getCity().getId())) {
            client.getCity().setId(c.getId());
@@ -60,8 +62,9 @@ public class ClientService {
               }
           }
         });
-         return clientRepository.save(client);
+        }
+        return clientRepository.save(client);
      }
   }
 
-}
+

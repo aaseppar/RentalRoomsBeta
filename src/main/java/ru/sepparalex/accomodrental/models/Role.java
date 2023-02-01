@@ -6,8 +6,11 @@ import java.util.stream.Collectors;
 
 public enum Role {
     USER(Set.of(Permission.CLIENT_WRITE,Permission.BOOKING_WRITE,Permission.ROOMS_READ,Permission.ROOMS_WRITE,Permission.CITY_READ)),
-    ADMIN(Set.of(Permission.CLIENT_READ, Permission.CLIENT_WRITE,Permission.BOOKING_WRITE,
-            Permission.BOOKING_READ,Permission.ROOMS_READ, Permission.ROOMS_WRITE,Permission.CITY_READ,Permission.CITY_WRITE));
+    ADMIN(Set.of(Permission.CLIENT_READ, Permission.CLIENT_WRITE,Permission.CLIENT_CREATE,Permission.BOOKING_WRITE,
+            Permission.BOOKING_READ,Permission.ROOMS_READ, Permission.ROOMS_WRITE,Permission.CITY_READ,Permission.CITY_WRITE)),
+    SUPERADMIN(Set.of(Permission.CLIENT_READ, Permission.CLIENT_WRITE,Permission.BOOKING_WRITE,
+            Permission.BOOKING_READ,Permission.ROOMS_READ, Permission.ROOMS_WRITE,Permission.CITY_READ,Permission.CITY_WRITE,
+            Permission.CLIENT_SET_ROLE));
 
     private final Set<Permission> permissions;
 
