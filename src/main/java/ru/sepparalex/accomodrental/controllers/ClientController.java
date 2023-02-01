@@ -6,6 +6,7 @@ import ru.sepparalex.accomodrental.models.*;
 import ru.sepparalex.accomodrental.services.ClientService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -39,7 +40,6 @@ public class ClientController {
         return clientService.save(client,3);
 
     }
-    //@PatchMapping("/{id}/role/")
     @PatchMapping("/{id}/")
     @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) or hasAuthority('client:set_role')")
     public Client patchClientRole(@PathVariable("id") int id,@RequestParam(name="clientId",required = true) int clientId,@RequestParam(name="role",required = true) Role role) {
@@ -48,10 +48,12 @@ public class ClientController {
         return clientService.save(client,4);
 
     }
-    @PatchMapping("/{id}/{clientId}/status/")
+    @PatchMapping("/{id}/{clientFullName}/status/")
     @PreAuthorize("@userDetailsServiceImpl.hasNoUserId(authentication, #id) and hasAuthority('client:write')")
-    public Client patchClientStatus(@PathVariable("clientId") int clientId,@RequestParam(name="status",required = true) Status status) {
-        Client client=clientService.findById(clientId);
+    public Client patchClientStatus(@PathVariable("id") int id,
+                                    @PathVariable("clientFullName") String clientFullName,
+                                    @RequestParam(name="status",required = true) Status status) {
+        Client client=clientService.findByFullName(clientFullName);
         client.setStatus(status);
        return clientService.save(client,5);
 

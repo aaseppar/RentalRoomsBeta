@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add ROLE=SUPERADMIN">
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add hasNoUserId function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/ClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +214,8 @@
       <workItem from="1675191377089" duration="55000" />
       <workItem from="1675191863914" duration="577000" />
       <workItem from="1675229610774" duration="17116000" />
-      <workItem from="1675253692417" duration="5225000" />
+      <workItem from="1675253692417" duration="5276000" />
+      <workItem from="1675265332482" duration="5906000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -368,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675250730360</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add hasNoUserId function">
+      <created>1675258999962</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1675258999962</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,6 +416,7 @@
     <MESSAGE value="Add CreateAllTablesLast.sql" />
     <MESSAGE value="Add some checking" />
     <MESSAGE value="Add ROLE=SUPERADMIN" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ROLE=SUPERADMIN" />
+    <MESSAGE value="Add hasNoUserId function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add hasNoUserId function" />
   </component>
 </project>

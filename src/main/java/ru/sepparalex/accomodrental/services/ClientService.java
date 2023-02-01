@@ -1,5 +1,6 @@
 package ru.sepparalex.accomodrental.services;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.sepparalex.accomodrental.models.City;
 import ru.sepparalex.accomodrental.models.Client;
@@ -65,6 +66,10 @@ public class ClientService {
         }
         return clientRepository.save(client);
      }
-  }
+
+    public Client findByFullName(String clientFullName) {
+        return clientRepository.findByUserfullnameInoreCase(clientFullName);
+    }
+}
 
 
