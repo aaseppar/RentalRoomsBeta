@@ -46,7 +46,7 @@ public class BookingService {
             Rooms roomNew=new Rooms(3,1, booking.getClient(),city);
             roomNew=roomsService.save(roomNew);
             booking.setRoomsList(Collections.singletonList(roomNew));
-            booking.getRoomsList().add(roomNew);
+            //booking.getRoomsList().add(roomNew);
             //booking.getClient().setListBooking(Collections.singletonList(booking));
             //booking.getClient().getListBooking().add(booking);
            }
