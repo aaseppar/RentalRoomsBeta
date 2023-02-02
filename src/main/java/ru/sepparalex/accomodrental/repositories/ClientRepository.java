@@ -14,6 +14,7 @@ public interface ClientRepository extends JpaRepository<Client,Integer> {
     @Query("select c from Client c where c.userfullname = ?1")
     Client findByUserfullnameInoreCase(String name);
 
-
+    @Query("select c from Client c where c.city.id = ?1")
+    Client findByCityId(int cityId);
 
 }

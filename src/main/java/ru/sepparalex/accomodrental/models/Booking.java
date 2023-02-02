@@ -35,12 +35,21 @@ public class Booking {
     @JsonIgnore
     private List<Rooms> roomsList;
 
-    public Booking(int id,Date beginterm, Date endterm, int price,Client client) {
-        this.id=id;
+    public Booking(Date beginterm, Date endterm, int price,Client client) {
         this.beginterm = beginterm;
         this.endterm = endterm;
         this.price = price;
         this.client=client;
      }
 
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "id=" + id +
+                ", beginterm=" + beginterm +
+                ", endterm=" + endterm +
+                ", price=" + price +
+                ", client=" + client +
+                '}';
+    }
 }

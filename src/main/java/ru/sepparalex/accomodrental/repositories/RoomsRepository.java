@@ -33,5 +33,7 @@ public interface RoomsRepository extends JpaRepository<Rooms,Integer> {
    List<Rooms> findBeforeDate(Date date);
    @Query("select r from Rooms r where r.booking.endterm >= ?1")
    List<Rooms> findAfterDate(Date date);
+   @Query("select r from Rooms r where r.client.id= ?1 and r.flagfree=1")
+   Rooms findByClientId(int id);
 
 }

@@ -4,9 +4,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.sepparalex.accomodrental.models.Booking;
-import ru.sepparalex.accomodrental.models.Status;
+import ru.sepparalex.accomodrental.models.Rooms;
 import ru.sepparalex.accomodrental.services.BookingService;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -49,6 +50,11 @@ public class BookingController {
                                  @PathVariable String countryName,
                                  @RequestBody Booking booking){
        return bookingService.save(booking,idRoom,exist,cityName,countryName);
+    }
 
+    @PatchMapping("{id}/get/")
+    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) and hasAuthority('booking:write')")
+    public Rooms takeBooking(@PathVariable("id") int id,@RequestParam ("cityName") String cityName) throws ParseException {
+        return bookingService.takeBooking(cityName,id);
     }
 }

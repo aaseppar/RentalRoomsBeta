@@ -8,6 +8,8 @@ import ru.sepparalex.accomodrental.repositories.CityRepository;
 import ru.sepparalex.accomodrental.repositories.CountryRepository;
 
 import javax.transaction.Transactional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +21,7 @@ public class BookingService {
     private  final BookingRepository bookingRepository;
     private  final CountryService countryService;
     private  final CityService cityService;
+    private  final ClientService clientService;
     private  final RoomsService roomsService;
     public List<Booking> findAll(){
         return bookingRepository.findAll();
@@ -55,5 +58,23 @@ public class BookingService {
 
         }
         return  bookingRepository.save(booking);
+    }
+    @Transactional
+    public Rooms takeBooking(String cityName,int id) throws ParseException {
+     City cityforTake=cityService.findByName(cityName);
+       int citiIdforTake=cityforTake.getId();
+       Client client=clientService.findByCityId(citiIdforTake);
+        System.out.println(client);
+         Booking booking= new Booking(new SimpleDateFormat("yyyy-MM-dd").parse("2023-02-04"),
+                new SimpleDateFormat("yyyy-MM-dd").parse("2023-02-24"),23000,client);
+
+       Client clientNewLessee=clientService.findById(id);
+       booking.setClient(clientNewLessee);
+       Booking booking1= bookingRepository.save(booking);
+       Rooms rooms=roomsService.findByClientId(client.getId());
+       rooms.setBooking(booking1);
+       rooms.setFlagfree(0);
+      return roomsService.save(rooms);
+
     }
 }

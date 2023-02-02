@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
+
 @Table(name="city")
 public class City {
     @Id
@@ -32,7 +32,16 @@ public class City {
     @JsonIgnore
     private List<Client> clientList;
 
-    public City(String name,Country country) {
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", country=" + country +
+                '}';
+    }
+
+    public City(String name, Country country) {
         this.name = name;
         this.country=country;
     }

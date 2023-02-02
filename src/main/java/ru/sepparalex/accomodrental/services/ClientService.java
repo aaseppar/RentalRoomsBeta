@@ -70,6 +70,10 @@ public class ClientService {
     public Client findByFullName(String clientFullName) {
         return clientRepository.findByUserfullnameInoreCase(clientFullName);
     }
+
+    public Client findByCityId(int citiIdforTake) {
+        return clientRepository.findByCityId(citiIdforTake);
+    }
 }
 
 

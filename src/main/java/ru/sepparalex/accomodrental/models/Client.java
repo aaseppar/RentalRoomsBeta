@@ -58,4 +58,12 @@ public class Client {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", userfullname='" + userfullname + '\'' +
+                ", city=" + city +
+                '}';
+    }
 }

@@ -41,4 +41,8 @@ public class RoomsService {
     public Rooms save(Rooms rooms){
         return  roomsRepository.save(rooms);
     };
+
+    public Rooms findByClientId(int id) {
+        return roomsRepository.findByClientId(id);
+    }
 }
