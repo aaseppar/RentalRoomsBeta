@@ -55,9 +55,9 @@ public class ClientService {
           else{
               if(((!(c.getName().equals(client.getCity().getName())))&&(c.getId()==client.getCity().getId()))||
                       (!(c.getName().equals(client.getCity().getName())))&&(c.getId()!=client.getCity().getId())) {
-                  int lastId = cities.get(cities.size() - 1).getId()+1;
+                  //int lastId = cities.get(cities.size() - 1).getId()+1;
                   //Need make new City!!!!!!!!!!!!!!!
-                  City city= new City(lastId,client.getCity().getName(),client.getCity().getCountry());
+                  City city= new City(client.getCity().getName(),client.getCity().getCountry());
                   client.setCity(city);
                   cityService.save(city);
               }

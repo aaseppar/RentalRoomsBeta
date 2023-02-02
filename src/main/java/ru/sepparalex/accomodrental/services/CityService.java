@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.sepparalex.accomodrental.models.City;
 import ru.sepparalex.accomodrental.repositories.CityRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -19,7 +20,7 @@ public class CityService {
        return cityRepository.findByName(name);
     }
 
-
+    @Transactional
     public City save(City city) {
         return cityRepository.save(city);
     }

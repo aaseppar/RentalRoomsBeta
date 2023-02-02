@@ -3,6 +3,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -10,10 +12,12 @@ import java.util.*;
 @NoArgsConstructor
 @Setter
 @Getter
+@ToString
 @Table(name="booking")
+
 public class Booking {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
     @Column(name="beginterm")
@@ -39,13 +43,4 @@ public class Booking {
         this.client=client;
      }
 
-    @Override
-    public String toString() {
-        return "Booking{" +
-                "id=" + id +
-                ", beginterm=" + beginterm +
-                ", endterm=" + endterm +
-                ", price=" + price +
-                '}';
-    }
 }

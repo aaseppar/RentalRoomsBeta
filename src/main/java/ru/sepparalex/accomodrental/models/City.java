@@ -3,6 +3,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
+@ToString
 @Table(name="city")
 public class City {
     @Id
@@ -29,8 +32,7 @@ public class City {
     @JsonIgnore
     private List<Client> clientList;
 
-    public City(int id,String name,Country country) {
-        this.id = id;
+    public City(String name,Country country) {
         this.name = name;
         this.country=country;
     }

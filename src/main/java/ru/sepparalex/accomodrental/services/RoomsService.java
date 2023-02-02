@@ -38,4 +38,7 @@ public class RoomsService {
     public List<Rooms> findAfterDate(Date date) {
         return roomsRepository.findAfterDate(date);
     }
+    public Rooms save(Rooms rooms){
+        return  roomsRepository.save(rooms);
+    };
 }

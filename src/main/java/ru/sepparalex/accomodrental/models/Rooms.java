@@ -2,12 +2,15 @@ package ru.sepparalex.accomodrental.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
 @Setter
 @Getter
+@ToString
 @Table(name="rooms")
 public class Rooms {
    @Id
@@ -28,8 +31,11 @@ public class Rooms {
    @JoinColumn(name = "bookingid",referencedColumnName = "id")
    private Booking booking;
 
-   public Rooms(int rating, int flagfree) {
+   public Rooms(int rating, int flagfree, Client client,City city) {
       this.rating = rating;
       this.flagfree = flagfree;
+      this.client=client;
+      this.city=city;
+
    }
 }
