@@ -26,8 +26,8 @@ public class ClientController {
         return clientService.findById(id);
     }
 
-    @PutMapping("/{id}")
-    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) or hasAuthority('client:create')")
+    @PutMapping()
+    @PreAuthorize("hasAnyAuthority('client:write')")
         public Client createClient(@RequestBody Client client){
         return clientService.save(client,0);
 

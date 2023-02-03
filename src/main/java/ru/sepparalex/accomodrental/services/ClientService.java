@@ -4,6 +4,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.sepparalex.accomodrental.models.City;
 import ru.sepparalex.accomodrental.models.Client;
+import ru.sepparalex.accomodrental.models.Country;
+import ru.sepparalex.accomodrental.models.Role;
 import ru.sepparalex.accomodrental.repositories.ClientRepository;
 
 import javax.transaction.Transactional;
@@ -17,6 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ClientService {
     private final ClientRepository clientRepository;
     private final CityService cityService;
+    private final CountryService countryService;
     public List<Client> findAll(){
         return clientRepository.findAll();
     }
@@ -48,21 +51,49 @@ public class ClientService {
      });
 
        if(flagEqualsCityIDAndName.get()!=1){
-          cities.forEach(c->{
-          if((c.getName().equals(client.getCity().getName()))&&(c.getId()!=client.getCity().getId())) {
-           client.getCity().setId(c.getId());
+          for(int i=0;i<cities.size();i++){
+              City city=cities.get(i);
+          if((city.getName().equals(client.getCity().getName()))&&(city.getId()!=client.getCity().getId())) {
+           client.getCity().setId(city.getId());
+           break;
            }
           else{
-              if(((!(c.getName().equals(client.getCity().getName())))&&(c.getId()==client.getCity().getId()))||
-                      (!(c.getName().equals(client.getCity().getName())))&&(c.getId()!=client.getCity().getId())) {
-                  //int lastId = cities.get(cities.size() - 1).getId()+1;
+              if(((!(city.getName().equals(client.getCity().getName())))&&(city.getId()==client.getCity().getId()))||
+                (!(city.getName().equals(client.getCity().getName())))&&(city.getId()!=client.getCity().getId())) {
                   //Need make new City!!!!!!!!!!!!!!!
-                  City city= new City(client.getCity().getName(),client.getCity().getCountry());
-                  client.setCity(city);
-                  cityService.save(city);
+                  City city1= new City(client.getCity().getName(),client.getCity().getCountry());
+                  client.setCity(city1);
+                  cityService.save(city1);
+                  break;
               }
           }
+        }
+       }
+
+        AtomicInteger flagEqualsCountryIDAndName= new AtomicInteger();
+        List<Country> countryList = countryService.findAll();
+        countryList.forEach(c->{if((c.getId()==client.getCity().getCountry().getId()) //Equals countryId and countryName
+                                   &&(c.getName().equals(client.getCity().getCountry().getName()))){
+            flagEqualsCountryIDAndName.set(1);}
         });
+        if(flagEqualsCountryIDAndName.get()!=1){ // Not Equals countryId or countryName
+            for(int i=0;i<countryList.size();i++){
+                Country country=countryList.get(i);
+                if((country.getName().equals(client.getCity().getCountry().getName()))
+                        &&(country.getId()!=client.getCity().getCountry().getId())) { //Equal name country bat not equal id country
+                    client.getCity().getCountry().setId(country.getId());
+                    break;
+                }
+                else{
+                    if(((!(country.getName().equals(client.getCity().getCountry().getName())))&&(country.getId()==client.getCity().getCountry().getId()))||
+                      (!(country.getName().equals(client.getCity().getCountry().getName())))&&(country.getId()!=client.getCity().getCountry().getId())) {
+                        //Need make new Country!!!!!!!!!!!!!!!
+                        Country country1= new Country(client.getCity().getCountry().getName());
+                        countryService.save(country1);
+                        break;
+                    }
+                }
+            }
         }
         return clientRepository.save(client);
      }
