@@ -17,7 +17,6 @@ public class ClientController {
     @PreAuthorize("hasAnyAuthority('client:read')")
     public List<Client>  getAll(){
         List<Client> client=clientService.findAll();
-        //client.forEach(c -> System.out.println(c));
         return client;
     }
     @GetMapping("/{id}")
@@ -29,6 +28,7 @@ public class ClientController {
     @PutMapping()
     @PreAuthorize("hasAnyAuthority('client:write')")
         public Client createClient(@RequestBody Client client){
+        client.setRole(Role.USER);
         return clientService.save(client,0);
 
     }
