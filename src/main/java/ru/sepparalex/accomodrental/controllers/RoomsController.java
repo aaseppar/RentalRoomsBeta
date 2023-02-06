@@ -59,6 +59,11 @@ public class RoomsController {
         List<Rooms> rooms=  roomsService.findAfterDate(date);
         return rooms;
     }
-
+    @GetMapping("/flagFree")
+    @PreAuthorize("hasAnyAuthority('rooms:read')")
+    public List<Rooms> getByFlagFree(){
+        List<Rooms> rooms=  roomsService.findByFlagFree();
+        return rooms;
+    }
 
 }

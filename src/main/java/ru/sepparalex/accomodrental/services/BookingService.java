@@ -27,8 +27,8 @@ public class BookingService {
         return bookingRepository.findAll();
     }
     public Booking findById(int id){
-        Optional <Booking> res=bookingRepository.findById(id);
-        return res.orElseThrow();
+        return bookingRepository.findById(id).orElseThrow();
+
     }
     public List<Booking> findBeforeDate(Date value) {
         return bookingRepository.findByEndtermBefore(value);
@@ -60,20 +60,14 @@ public class BookingService {
         return  bookingRepository.save(booking);
     }
     @Transactional
-    public Rooms takeBooking(String cityName,int id) throws ParseException {
-     City cityforTake=cityService.findByName(cityName);
-       int citiIdforTake=cityforTake.getId();
-       Client client=clientService.findByCityId(citiIdforTake);
-        System.out.println(client);
-         Booking booking= new Booking(new SimpleDateFormat("yyyy-MM-dd").parse("2023-02-04"),
-                new SimpleDateFormat("yyyy-MM-dd").parse("2023-02-24"),23000,client);
-
-       Client clientNewLessee=clientService.findById(id);
-       booking.setClient(clientNewLessee);
-       Booking booking1= bookingRepository.save(booking);
-       Rooms rooms=roomsService.findByClientId(client.getId());
-       rooms.setBooking(booking1);
-       rooms.setFlagfree(0);
+    public Rooms takeBooking(int idNewClient,int roomsId) throws ParseException {
+    Rooms rooms =roomsService.findByRoomsId(roomsId);
+        Client clientNewLessee=clientService.findById(idNewClient);
+        Booking booking= new Booking(new SimpleDateFormat("yyyy-MM-dd").parse("2023-02-04"),
+                new SimpleDateFormat("yyyy-MM-dd").parse("2023-02-24"),23000,clientNewLessee);
+        Booking booking1= bookingRepository.save(booking);
+        rooms.setBooking(booking1);
+        rooms.setFlagfree(0);
       return roomsService.save(rooms);
 
     }

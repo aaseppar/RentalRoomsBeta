@@ -2,7 +2,6 @@ package ru.sepparalex.accomodrental.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import ru.sepparalex.accomodrental.models.Booking;
 import ru.sepparalex.accomodrental.models.Rooms;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -35,5 +34,8 @@ public interface RoomsRepository extends JpaRepository<Rooms,Integer> {
    List<Rooms> findAfterDate(Date date);
    @Query("select r from Rooms r where r.client.id= ?1 and r.flagfree=1")
    Rooms findByClientId(int id);
-
+   @Query("select r from Rooms r where r.id= ?1")
+   Rooms findByRoomsId(int roomsId);
+   @Query("select r from Rooms r where r.flagfree=1")
+   List<Rooms> findByFlagFree();
 }

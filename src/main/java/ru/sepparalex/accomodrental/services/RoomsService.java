@@ -45,4 +45,11 @@ public class RoomsService {
     public Rooms findByClientId(int id) {
         return roomsRepository.findByClientId(id);
     }
+    public Rooms findByRoomsId(int roomsId){
+        return roomsRepository.findByRoomsId(roomsId);
+    }
+
+    public List<Rooms> findByFlagFree() {
+        return roomsRepository.findByFlagFree();
+    }
 }

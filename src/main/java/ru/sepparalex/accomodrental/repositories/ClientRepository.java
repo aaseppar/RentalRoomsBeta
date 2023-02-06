@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client,Integer> {
+
     Optional<Client> findByEmail(String email);
     @Query("select c from Client c where c.userfullname = ?1")
     Client findByUserfullnameInoreCase(String name);

@@ -73,12 +73,12 @@ CREATE TABLE IF NOT EXISTS public.client
 );
 insert into "client" (userfullname,login,passwd,birthday,email,ratingid,cityid,role,status)
 values
-    ('Sara Connor', 'sara','sarasara', '02.08.1974','sara@gmail.com',4,1,'ADMIN','ACTIVE'),
+    ('Sara Connor', 'sara','$2a$12$05iXrzrVTmZfeapa9epCPO3rL8dB73NtwEEEEh184tuGX2FwEKU5y', '02.08.1974','sara@gmail.com',4,1,'ADMIN','ACTIVE'),
     ('Bjisko Mrazek', 'mra','mramra', '01.07.1980','mra@ralpol.com',4,2,'USER','ACTIVE'),
-    ('Trumm Sanderson', 'trum','trumtrum', '03.06.1981','trum@norw.com',4,3,'USER','ACTIVE'),
+    ('Trumm Sanderson', 'trum','$2a$12$rrjZTFiTcM6iUo6GFZyJjute/9o8vgRLtSv/3ejoOdxFK1O89cOXy', '03.06.1981','trum@norw.com',4,3,'USER','ACTIVE'),
     ('Sergio Franco', 'ser','serser', '04.07.1982','ser@ukrain.uk',4,4,'USER','ACTIVE'),
-    ('Gans Shmulke', 'gans','gansgans', '05.07.1984','gans@raih.gm',4,5,'USER','ACTIVE'),
-    ('Moise Blum', 'moi','moimoi', '04.07.1985','moi@izrael.com',4,6,'USER','ACTIVE');
+    ('Gans Shmulke', 'gans','$2a$12$rYHC8ZAj6fjqzArjNT8nreGUim7C9mjCJFaFkVAdRfTs3/XxT8Vpy', '05.07.1984','gans@raih.gm',4,5,'USER','ACTIVE'),
+    ('Moise Blum', 'moi','$2a$12$lIrIT2tcq4oziSl/ftfvIekAB7mV5ydrQRJCmDvy/LeXiR1GWl9k6', '04.07.1985','moi@izrael.com',4,6,'USER','ACTIVE');
 
 
 CREATE TABLE IF NOT EXISTS public.booking

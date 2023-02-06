@@ -25,8 +25,7 @@ public class ClientController {
         return clientService.findById(id);
     }
 
-    @PutMapping()
-    @PreAuthorize("hasAnyAuthority('client:write')")
+    @PostMapping()
         public Client createClient(@RequestBody Client client){
         client.setRole(Role.USER);
         return clientService.save(client,0);

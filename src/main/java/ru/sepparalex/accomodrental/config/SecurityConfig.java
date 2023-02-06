@@ -33,7 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //Любой запрос должен требовать авторизации
         http
                 .csrf().disable()   //Отключение защиты csrf токеном
-                .authorizeRequests().antMatchers("/").permitAll().anyRequest().authenticated()
+                .authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/client").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .httpBasic();   //Базовая аутентификация
     }

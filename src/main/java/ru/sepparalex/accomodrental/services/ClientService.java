@@ -53,8 +53,8 @@ public class ClientService {
        if(flagEqualsCityIDAndName.get()!=1){
           for(int i=0;i<cities.size();i++){
               City city=cities.get(i);
-          if((city.getName().equals(client.getCity().getName()))&&(city.getId()!=client.getCity().getId())) {
-           client.getCity().setId(city.getId());
+          if((city.getName().equals(client.getCity().getName()))&&(city.getId()!=client.getCity().getId())) {//client insert wrong city id
+           client.getCity().setId(city.getId());// insert true city id to client
            break;
            }
           else{

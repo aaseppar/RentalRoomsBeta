@@ -1,8 +1,12 @@
 package ru.sepparalex.accomodrental.controllers;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import ru.sepparalex.accomodrental.error.ErrorMessage;
 import ru.sepparalex.accomodrental.models.Booking;
 import ru.sepparalex.accomodrental.models.Rooms;
 import ru.sepparalex.accomodrental.services.BookingService;
@@ -10,11 +14,13 @@ import ru.sepparalex.accomodrental.services.BookingService;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 
 @RestController
 @AllArgsConstructor
 @RequestMapping("/booking")
+@Slf4j
 public class BookingController {
  private final BookingService bookingService;
  @GetMapping
@@ -23,12 +29,20 @@ public class BookingController {
    List<Booking> booking=bookingService.findAll();
    return booking;
  }
+
     @GetMapping("{id}")
-    @PreAuthorize("hasAnyAuthority('booking:read')")
+    @PreAuthorize("hasAnyAuthority('booking:write')")
     public Booking getById(@PathVariable("id") int id){
     return bookingService.findById(id);
-
     }
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage handle(NoSuchElementException exc){
+     log.error(exc.getMessage());
+    return new ErrorMessage(exc.getMessage(),HttpStatus.NOT_FOUND);
+   }
+
+
     @GetMapping("/before")
     @PreAuthorize("hasAnyAuthority('booking:read')")
     public List<Booking> getByDateBefore(@RequestParam ("value") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)Date value){
@@ -52,9 +66,8 @@ public class BookingController {
        return bookingService.save(booking,idRoom,exist,cityName,countryName);
     }
 
-    @PatchMapping("{id}/get/")
-    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) and hasAuthority('booking:write')")
-    public Rooms takeBooking(@PathVariable("id") int id,@RequestParam ("cityName") String cityName) throws ParseException {
-        return bookingService.takeBooking(cityName,id);
+    @PostMapping("{id}/get/")
+    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) or hasAuthority('booking:write')")
+    public Rooms takeBooking(@PathVariable("id") int id,@RequestParam ("roomsId") int roomsId) throws ParseException {return bookingService.takeBooking(id,roomsId);
     }
 }
