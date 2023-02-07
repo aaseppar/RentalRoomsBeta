@@ -1,14 +1,21 @@
 package ru.sepparalex.accomodrental.services;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import ru.sepparalex.accomodrental.models.City;
 import ru.sepparalex.accomodrental.models.Client;
 import ru.sepparalex.accomodrental.models.Country;
 import ru.sepparalex.accomodrental.models.Role;
 import ru.sepparalex.accomodrental.repositories.ClientRepository;
 
+import javax.management.BadAttributeValueExpException;
+import javax.persistence.EntityExistsException;
 import javax.transaction.Transactional;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -39,10 +46,19 @@ public class ClientService {
         });
            System.out.println(flagExistEmail.get());
         if(flagExistEmail.get()==1) {
-            System.out.println(String.format("This email=%s already exist! Input another email.",client.getEmail()));
-        return null;
+           throw new EntityExistsException();
+          }
         }
-       }
+
+       boolean matchesEmail=client.getEmail().matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
+        if(matchesEmail==false){
+            throw new IllegalArgumentException();
+        }
+
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+       String encodedPassword = passwordEncoder.encode(client.getPassword());
+       client.setPassword(encodedPassword);
 
      AtomicInteger flagEqualsCityIDAndName= new AtomicInteger();
      List<City> cities = cityService.findAll();

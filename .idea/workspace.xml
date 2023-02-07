@@ -9,29 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Make some amends">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_7_7.xml" beforeDir="false" />
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Make free client add and add error packet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccomodRental.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AccomodRental.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackupRentalRooms.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CreateAllTables.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CreateAllTablesLast.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CreateAllTablesLast.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rental.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/AccomodRentalApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/AccomodRentalApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/RoomsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/RoomsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/ClientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RoomsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RoomsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/BookingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/RoomsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/RoomsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +236,8 @@
       <workItem from="1675660043879" duration="2178000" />
       <workItem from="1675662355587" duration="2027000" />
       <workItem from="1675664426843" duration="1111000" />
-      <workItem from="1675665581125" duration="20972000" />
+      <workItem from="1675665581125" duration="21252000" />
+      <workItem from="1675749849045" duration="8264000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -459,7 +442,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675409369469</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Make free client add">
+      <created>1675689767488</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1675689767488</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Make free client add and add error packet">
+      <created>1675689870029</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1675689870029</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,8 +474,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first commit" />
-    <MESSAGE value="Was added security" />
     <MESSAGE value="Was change gitignore file" />
     <MESSAGE value="Was changed Role.java class" />
     <MESSAGE value="Sara Connor is working!" />
@@ -502,6 +497,8 @@
     <MESSAGE value="Add make Rental" />
     <MESSAGE value="Add create new Country" />
     <MESSAGE value="Make some amends" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make some amends" />
+    <MESSAGE value="Make free client add" />
+    <MESSAGE value="Make free client add and add error packet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make free client add and add error packet" />
   </component>
 </project>

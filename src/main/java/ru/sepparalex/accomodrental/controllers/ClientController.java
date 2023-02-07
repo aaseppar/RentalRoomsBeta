@@ -1,10 +1,13 @@
 package ru.sepparalex.accomodrental.controllers;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.sepparalex.accomodrental.models.*;
 import ru.sepparalex.accomodrental.services.ClientService;
 
+import javax.persistence.EntityExistsException;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,8 +32,16 @@ public class ClientController {
         public Client createClient(@RequestBody Client client){
         client.setRole(Role.USER);
         return clientService.save(client,0);
-
     }
+    @ExceptionHandler(EntityExistsException.class)
+    public ResponseEntity<String> handleExistEmail(){
+        return new ResponseEntity<>("That address  already exist", HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handle(){
+        return new ResponseEntity<>("Bad email address", HttpStatus.BAD_REQUEST);
+    }
+
     @PatchMapping("/{id}/{email}")
     @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) and hasAuthority('client:write')")
     public Client patchClientEmail(@PathVariable("id") int id,@PathVariable("email") String email) {
