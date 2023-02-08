@@ -1,15 +1,18 @@
 package ru.sepparalex.accomodrental.controllers;
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ru.sepparalex.accomodrental.error.*;
 import ru.sepparalex.accomodrental.models.Rooms;
 import ru.sepparalex.accomodrental.services.RoomsService;
 
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
 import java.util.Date;
+import java.util.EmptyStackException;
 import java.util.List;
 
 @RestController
@@ -20,50 +23,100 @@ public class RoomsController {
     @GetMapping
     @PreAuthorize("hasAnyAuthority('rooms:read')")
     public List<Rooms> getAll(){
-        List<Rooms> rooms=roomsService.findAll();
-         return rooms;
+        return roomsService.findAll();
     }
+
     @GetMapping("/city/")
     @PreAuthorize("hasAnyAuthority('rooms:read')")
     public List<Rooms> getByCity(@RequestParam("name") String name){
-        List<Rooms> rooms=  roomsService.findByCity(name);
-        return rooms;
+        return roomsService.findByCity(name);
+     }
+    @ExceptionHandler()
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage handlerNotFoundByCityName(NoRoomsByCityNameException ex){
+        return new ErrorMessage(ex.getMessage(),HttpStatus.NOT_FOUND);
     }
+
     @GetMapping("/country")
     @PreAuthorize("hasAnyAuthority('rooms:read')")
-    public List<Rooms> getByCountry(@RequestParam("name") String name){
-        List<Rooms> rooms=  roomsService.findByCountryName(name);
-        return rooms;
+    public List<Rooms> getByCountryName(@RequestParam("name") String name){
+        return  roomsService.findByCountryName(name);
     }
+    @ExceptionHandler()
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage handlerNotFoundByCountryName(NoRoomsByCountryNameException ex){
+        return new ErrorMessage(ex.getMessage(),HttpStatus.NOT_FOUND);
+    }
+
+
     @GetMapping("/rating/")
     @PreAuthorize("hasAnyAuthority('rooms:read')")
-    public List<Rooms> getByCity(@RequestParam("rating") Integer rating){
-        List<Rooms> rooms=  roomsService.findByRating(rating);
-        return rooms;
+    public List<Rooms> getByRating(@RequestParam("rating") Integer rating){
+        return roomsService.findByRating(rating);
     }
-    @GetMapping("/booking")
+    @ExceptionHandler()
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage handlerNotFoundByRating(NoRoomsByRatingException ex){
+        return new ErrorMessage(ex.getMessage(),HttpStatus.NOT_FOUND);
+    }
+
+
+    @GetMapping("/lessOrEquals/")
     @PreAuthorize("hasAnyAuthority('rooms:read')")
-    public List<Rooms> getByCountry(@RequestParam("price") Integer price){
-        List<Rooms> rooms=  roomsService.findByPrice(price);
-        return rooms;
+    public List<Rooms> getByPriceLessOrEquals(@RequestParam("price") Integer price){
+        return roomsService.findByPriceLessOrEquals(price);
     }
+    @ExceptionHandler()
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage handlerNotFoundByPriceLess(NoRoomsByPriceLessException ex){
+        return new ErrorMessage(ex.getMessage(),HttpStatus.NOT_FOUND);
+    }
+
+
+    @GetMapping("/moreOrEquals/")
+    @PreAuthorize("hasAnyAuthority('rooms:read')")
+    public List<Rooms> getByPriceMoreOrEquals(@RequestParam("price") Integer price){
+        return roomsService.findByPriceMoreOrEquals(price);
+    }
+    @ExceptionHandler()
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage handlerNotFoundByPriceMore(NoRoomsByPriceMoreException ex){
+        return new ErrorMessage(ex.getMessage(),HttpStatus.NOT_FOUND);
+    }
+
+
     @GetMapping("/before")
     @PreAuthorize("hasAnyAuthority('rooms:read')")
     public List<Rooms> getByDateBefore(@RequestParam ("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) Date date){
-        List<Rooms> rooms=  roomsService.findBeforeDate(date);
-        return rooms;
+        return  roomsService.findBeforeDate(date);
     }
+    @ExceptionHandler()
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage handlerNotFoundByBeforeTerm(NoRoomsByBeforeTermException ex){
+        return new ErrorMessage(ex.getMessage(),HttpStatus.NOT_FOUND);
+    }
+
     @GetMapping("/after")
     @PreAuthorize("hasAnyAuthority('rooms:read')")
     public List<Rooms> getByDateAfter(@RequestParam ("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) Date date){
-        List<Rooms> rooms=  roomsService.findAfterDate(date);
-        return rooms;
+        return roomsService.findAfterDate(date);
     }
+    @ExceptionHandler()
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage handlerNotFoundByAfterTerm(NoRoomsByAfterTermException ex){
+        return new ErrorMessage(ex.getMessage(),HttpStatus.NOT_FOUND);
+    }
+
+
     @GetMapping("/flagFree")
     @PreAuthorize("hasAnyAuthority('rooms:read')")
     public List<Rooms> getByFlagFree(){
-        List<Rooms> rooms=  roomsService.findByFlagFree();
-        return rooms;
+        return  roomsService.findByFlagFree();
+    }
+    @ExceptionHandler()
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorMessage handlerNotFoundFreeRooms(NoRoomsByFlagFreeException ex){
+        return new ErrorMessage(ex.getMessage(),HttpStatus.NOT_FOUND);
     }
 
 }

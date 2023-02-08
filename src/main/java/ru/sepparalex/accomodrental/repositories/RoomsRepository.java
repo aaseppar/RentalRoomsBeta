@@ -26,8 +26,12 @@ public interface RoomsRepository extends JpaRepository<Rooms,Integer> {
 //   }
 
    List<Rooms> findByRating(Integer rating);
-   @Query("select r from Rooms r where r.booking.price = ?1")
-   List<Rooms> findByBookingPrice(Integer price);
+   @Query("select r from Rooms r where r.booking.price <= ?1")
+   List<Rooms> findByBookingPriceLessOrEquals(Integer price);
+
+   @Query("select r from Rooms r where r.booking.price >= ?1")
+   List<Rooms> findByBookingPriceMoreOrEquals(Integer price);
+
    @Query("select r from Rooms r where r.booking.beginterm <= ?1")
    List<Rooms> findBeforeDate(Date date);
    @Query("select r from Rooms r where r.booking.endterm >= ?1")

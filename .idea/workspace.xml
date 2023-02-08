@@ -9,11 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Make free client add and add error packet">
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add check email by regExp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/RoomsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/RoomsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RoomsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/repositories/RoomsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/RoomsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/RoomsService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +238,8 @@
       <workItem from="1675662355587" duration="2027000" />
       <workItem from="1675664426843" duration="1111000" />
       <workItem from="1675665581125" duration="21252000" />
-      <workItem from="1675749849045" duration="8264000" />
+      <workItem from="1675749849045" duration="8598000" />
+      <workItem from="1675837775914" duration="15408000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -456,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675689870029</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Add check email by regExp">
+      <created>1675758533281</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1675758533281</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Was change gitignore file" />
     <MESSAGE value="Was changed Role.java class" />
     <MESSAGE value="Sara Connor is working!" />
     <MESSAGE value="Add some GetMapping" />
@@ -499,6 +507,7 @@
     <MESSAGE value="Make some amends" />
     <MESSAGE value="Make free client add" />
     <MESSAGE value="Make free client add and add error packet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make free client add and add error packet" />
+    <MESSAGE value="Add check email by regExp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add check email by regExp" />
   </component>
 </project>
