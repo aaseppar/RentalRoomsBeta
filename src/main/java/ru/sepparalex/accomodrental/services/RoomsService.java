@@ -19,55 +19,61 @@ public class RoomsService {
     }
 
     public List<Rooms> findByCity(String name) {
-
-        if((roomsRepository.findByNameIgnoreCaseOrderByNameAsc(name)).size()==0){
+        List<Rooms> roomsList=roomsRepository.findByNameIgnoreCaseOrderByNameAsc(name);
+        if(roomsList.size()==0){
           throw  new NoRoomsByCityNameException("That City doesn't contain any rooms");
         }
-        else return  roomsRepository.findByNameIgnoreCaseOrderByNameAsc(name);
+        else return roomsList;
 
     }
 
     public List<Rooms> findByCountryName(String name) {
-        if((roomsRepository.findByCountryNameIgnoreCase(name)).size()==0){
+        List<Rooms> roomsList=roomsRepository.findByCountryNameIgnoreCase(name);
+        if(roomsList.size()==0){
            throw  new NoRoomsByCountryNameException("That Country doesn't contain any rooms");
         }
-       else return roomsRepository.findByCountryNameIgnoreCase(name);
+       else return roomsList;
 
     }
 
     public List<Rooms> findByRating(Integer rating) {
-       if(roomsRepository.findByRating(rating).size()==0){
+        List<Rooms> roomsList=roomsRepository.findByRating(rating);
+       if(roomsList.size()==0){
            throw new NoRoomsByRatingException("There are no apartments with this rating");
        }
-       else return roomsRepository.findByRating(rating);
+       else return roomsList;
     }
 
     public List<Rooms> findByPriceLessOrEquals(Integer price) {
-        if(roomsRepository.findByBookingPriceLessOrEquals(price).size()==0){
+        List<Rooms> roomsList=roomsRepository.findByBookingPriceLessOrEquals(price);
+        if(roomsList.size()==0){
             throw new NoRoomsByPriceLessException("There aren't apartments with a price less or equals than this");
         }
-        else return roomsRepository.findByBookingPriceLessOrEquals(price);
+        else return roomsList;
     }
 
     public List<Rooms> findByPriceMoreOrEquals(Integer price) {
-        if(roomsRepository.findByBookingPriceMoreOrEquals(price).size()==0){
+        List<Rooms> roomsList=roomsRepository.findByBookingPriceMoreOrEquals(price);
+        if(roomsList.size()==0){
             throw new NoRoomsByPriceMoreException("There aren't apartments with a price more or equals than this");
         }
-        else return roomsRepository.findByBookingPriceMoreOrEquals(price);
+        else return roomsList;
     }
 
     public List<Rooms> findBeforeDate(Date date) {
-        if(roomsRepository.findBeforeDate(date).size()==0) {
-            throw new NoRoomsByBeforeTermException("There aren't apartments with a date before that");
+        List<Rooms> roomsList=roomsRepository.findBeforeDate(date);
+        if(roomsList.size()==0) {
+        throw new NoRoomsByBeforeTermException("There aren't apartments with a date before that");
         }
-        else return roomsRepository.findBeforeDate(date);
+        else return roomsList;
     }
 
     public List<Rooms> findAfterDate(Date date) {
-        if(roomsRepository.findAfterDate(date).size()==0){
+        List<Rooms> roomsList=roomsRepository.findAfterDate(date);
+        if(roomsList.size()==0){
             throw new NoRoomsByAfterTermException("There aren't apartments with a date after that");
         }
-       else return roomsRepository.findAfterDate(date);
+       else return roomsList;
     }
 
     public Rooms save(Rooms rooms){
@@ -78,16 +84,18 @@ public class RoomsService {
         return roomsRepository.findByClientId(id);
     }
     public Rooms findByRoomsId(int roomsId){
-        if(roomsRepository.findByRoomsId(roomsId)==null) {
+        Rooms room=roomsRepository.findByRoomsId(roomsId);
+        if(room==null) {
             throw new EntityNotFoundException();
         }
-      else return roomsRepository.findByRoomsId(roomsId);
+      else return room;
     }
 
     public List<Rooms> findByFlagFree() {
-        if(roomsRepository.findByFlagFree().size()==0) {
+        List<Rooms> roomsList=roomsRepository.findByFlagFree();
+        if(roomsList.size()==0) {
             throw new NoRoomsByFlagFreeException("There aren't free apartments");
         }
-       else return roomsRepository.findByFlagFree();
+       else return roomsList;
     }
 }

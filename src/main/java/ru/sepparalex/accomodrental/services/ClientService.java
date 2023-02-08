@@ -6,10 +6,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import ru.sepparalex.accomodrental.models.City;
-import ru.sepparalex.accomodrental.models.Client;
-import ru.sepparalex.accomodrental.models.Country;
-import ru.sepparalex.accomodrental.models.Role;
+import ru.sepparalex.accomodrental.error.NoBookingByIdException;
+import ru.sepparalex.accomodrental.error.NoClientByFullNameException;
+import ru.sepparalex.accomodrental.error.NoClientByIdException;
+import ru.sepparalex.accomodrental.error.NoClientSaveByEmailException;
+import ru.sepparalex.accomodrental.models.*;
 import ru.sepparalex.accomodrental.repositories.ClientRepository;
 
 import javax.management.BadAttributeValueExpException;
@@ -32,9 +33,10 @@ public class ClientService {
     }
 
     public Client findById(int id){
-        Optional<Client> res=clientRepository.findById(id);
-        return res.orElseThrow();
+      return clientRepository.findById(id).orElseThrow(()->new NoClientByIdException("There isn't Client with that Id"));
     }
+
+
     @Transactional
     public Client save(Client client,int flagChange){
        if(flagChange==0)
@@ -46,7 +48,7 @@ public class ClientService {
         });
            System.out.println(flagExistEmail.get());
         if(flagExistEmail.get()==1) {
-           throw new EntityExistsException();
+           throw new NoClientSaveByEmailException("The Client with that email already exist");
           }
         }
 
@@ -56,7 +58,7 @@ public class ClientService {
         }
 
 
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+       BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
        String encodedPassword = passwordEncoder.encode(client.getPassword());
        client.setPassword(encodedPassword);
 
@@ -115,12 +117,16 @@ public class ClientService {
      }
 
     public Client findByFullName(String clientFullName) {
-        return clientRepository.findByUserfullnameInoreCase(clientFullName);
+        Client client=clientRepository.findByUserfullnameInoreCase(clientFullName);
+        if(client==null){
+          throw new NoClientByFullNameException("There isn't Client with that FullName");
+        }
+        else return client;
     }
 
-    public Client findByCityId(int citiIdforTake) {
-        return clientRepository.findByCityId(citiIdforTake);
-    }
+//    public Client findByCityId(int citiIdforTake) {
+//        return clientRepository.findByCityId(citiIdforTake);
+//    }
 }
 
 
