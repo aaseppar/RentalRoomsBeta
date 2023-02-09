@@ -9,10 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add check email validation">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add rentalRooms.dump">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccomodRental.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AccomodRental.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/ClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,6 +249,8 @@
       <workItem from="1675935284851" duration="3003000" />
       <workItem from="1675940190123" duration="437000" />
       <workItem from="1675944773739" duration="210000" />
+      <workItem from="1675945592136" duration="72000" />
+      <workItem from="1675945798248" duration="613000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -494,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675940004265</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Add rentalRooms.dump">
+      <created>1675945652530</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1675945652530</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add before/after condition in request" />
     <MESSAGE value="Add @PreAuthorize" />
     <MESSAGE value="Add POST REQUEST for Booking" />
     <MESSAGE value="Add POST Request for Client" />
@@ -537,6 +546,7 @@
     <MESSAGE value="Add Exception Classes" />
     <MESSAGE value="Add some Exceptions" />
     <MESSAGE value="Add check email validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add check email validation" />
+    <MESSAGE value="Add rentalRooms.dump" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add rentalRooms.dump" />
   </component>
 </project>

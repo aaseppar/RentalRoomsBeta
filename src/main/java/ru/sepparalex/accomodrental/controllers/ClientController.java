@@ -121,8 +121,7 @@ public class ClientController {
     }
     @PatchMapping("/{id}/passwd/{password}")
     @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) and hasAuthority('client:write')")
-   // @PreAuthorize("hasAnyAuthority('client:write')")
-    public Client patchClientPassword(@PathVariable("id") int id,@PathVariable("password") String password) {
+     public Client patchClientPassword(@PathVariable("id") int id,@PathVariable("password") String password) {
         Client client=clientService.findById(id);
         client.setPassword(password);
         return clientService.save(client,2);

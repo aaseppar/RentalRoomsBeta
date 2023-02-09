@@ -76,7 +76,12 @@ public class ClientService {
           }
 
       }
+     if(flagChange==2) {
+         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+         String encodedPassword = passwordEncoder.encode(client.getPassword());
+         client.setPassword(encodedPassword);
 
+     }
 
      AtomicInteger flagEqualsCityIDAndName= new AtomicInteger();
      List<City> cities = cityService.findAll();
