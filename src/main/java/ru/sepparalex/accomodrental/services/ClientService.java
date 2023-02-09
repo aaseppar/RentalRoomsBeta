@@ -6,10 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import ru.sepparalex.accomodrental.error.NoBookingByIdException;
-import ru.sepparalex.accomodrental.error.NoClientByFullNameException;
-import ru.sepparalex.accomodrental.error.NoClientByIdException;
-import ru.sepparalex.accomodrental.error.NoClientSaveByEmailException;
+import ru.sepparalex.accomodrental.error.*;
 import ru.sepparalex.accomodrental.models.*;
 import ru.sepparalex.accomodrental.repositories.ClientRepository;
 
@@ -50,17 +47,36 @@ public class ClientService {
         if(flagExistEmail.get()==1) {
            throw new NoClientSaveByEmailException("The Client with that email already exist");
           }
+
+           boolean matchesEmail=client.getEmail().matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
+           if(matchesEmail==false){
+               throw new NoClientSaveByValidateEmailException("Failure check email validation");
+           }
+
+           BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+           String encodedPassword = passwordEncoder.encode(client.getPassword());
+           client.setPassword(encodedPassword);
+
         }
+      if(flagChange==3){
+          AtomicInteger flagExistEmail= new AtomicInteger(0);
+          List<Client> clients = clientRepository.findAll();
+          clients.forEach(c->{if(c.getEmail().equals(client.getEmail())&&(c.getId()!=client.getId())){
+              flagExistEmail.set(1);
+          }
+          });
 
-       boolean matchesEmail=client.getEmail().matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
-        if(matchesEmail==false){
-            throw new IllegalArgumentException();
-        }
+          if(flagExistEmail.get()==1) {
+              throw new NoClientSaveByEmailException("The Client with that email already exist");
+          }
 
+          boolean matchesEmail=client.getEmail().matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
+          if(matchesEmail==false){
+              throw new NoClientSaveByValidateEmailException("Failure check email validation");
+          }
 
-       BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-       String encodedPassword = passwordEncoder.encode(client.getPassword());
-       client.setPassword(encodedPassword);
+      }
+
 
      AtomicInteger flagEqualsCityIDAndName= new AtomicInteger();
      List<City> cities = cityService.findAll();
@@ -123,10 +139,6 @@ public class ClientService {
         }
         else return client;
     }
-
-//    public Client findByCityId(int citiIdforTake) {
-//        return clientRepository.findByCityId(citiIdforTake);
-//    }
 }
 
 

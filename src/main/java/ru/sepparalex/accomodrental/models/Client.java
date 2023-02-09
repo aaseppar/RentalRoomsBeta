@@ -63,7 +63,8 @@ public class Client {
         return "Client{" +
                 "id=" + id +
                 ", userfullname='" + userfullname + '\'' +
-                ", city=" + city +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
+

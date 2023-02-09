@@ -54,8 +54,15 @@ public class ClientController {
     public Client patchClientEmail(@PathVariable("id") int id,@PathVariable("email") String email) {
        Client client=clientService.findById(id);
        client.setEmail(email);
-        return clientService.save(client,3);
+       return clientService.save(client,3);
     }
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorMessage NoClientSaveByValidateEmail(NoClientSaveByValidateEmailException exc){
+        log.error(exc.getMessage());
+        return new ErrorMessage(exc.getMessage(),HttpStatus.BAD_REQUEST);
+    }
+
     @PatchMapping("/{clientId}/role/")
     @PreAuthorize("hasAnyAuthority('client:set_role')")
     public Client patchClientRole(@PathVariable("clientId") int clientId,@RequestParam(name="role",required = true) Role role) {

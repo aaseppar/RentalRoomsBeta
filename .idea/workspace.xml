@@ -9,17 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add Exception Classes">
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add some Exceptions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.txt.2023-02-06.0.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.txt.2023-02-07.0.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/RoomsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/RoomsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/BookingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/models/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/RoomsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/RoomsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +86,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Java_Learn/Diplom/AccomodRental/src/main/resources&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.45057473&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
@@ -244,7 +242,15 @@
       <workItem from="1675664426843" duration="1111000" />
       <workItem from="1675665581125" duration="21252000" />
       <workItem from="1675749849045" duration="8598000" />
-      <workItem from="1675837775914" duration="33951000" />
+      <workItem from="1675837775914" duration="34188000" />
+      <workItem from="1675926333683" duration="711000" />
+      <workItem from="1675927265256" duration="139000" />
+      <workItem from="1675927608114" duration="132000" />
+      <workItem from="1675928288907" duration="1000000" />
+      <workItem from="1675929734426" duration="192000" />
+      <workItem from="1675929962556" duration="4363000" />
+      <workItem from="1675934594340" duration="576000" />
+      <workItem from="1675935284851" duration="2936000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -477,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675858237995</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Add some Exceptions">
+      <created>1675878727614</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1675878727614</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sara Connor is working!" />
     <MESSAGE value="Add some GetMapping" />
     <MESSAGE value="Add before/after condition in request" />
     <MESSAGE value="Add @PreAuthorize" />
@@ -520,6 +532,7 @@
     <MESSAGE value="Make free client add and add error packet" />
     <MESSAGE value="Add check email by regExp" />
     <MESSAGE value="Add Exception Classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Exception Classes" />
+    <MESSAGE value="Add some Exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add some Exceptions" />
   </component>
 </project>
