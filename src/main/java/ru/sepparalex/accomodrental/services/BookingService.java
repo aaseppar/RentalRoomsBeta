@@ -8,8 +8,6 @@ import ru.sepparalex.accomodrental.error.NoBookingSaveByClientIdException;
 import ru.sepparalex.accomodrental.models.*;
 import ru.sepparalex.accomodrental.repositories.BookingRepository;
 import javax.transaction.Transactional;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -43,7 +41,7 @@ public class BookingService {
         else return bookingList;
     }
     @Transactional
-    public Booking save(int idClient,Booking booking,int idRoom,int exist,String cityName,String countryName) {
+    public Booking save(String login,String email,Booking booking,int idRoom,int exist,String cityName,String countryName) {
         if(exist==0){
 
             Country country=new Country(countryName);
@@ -61,7 +59,7 @@ public class BookingService {
         if(exist==1){
            booking.getRoomsList().get(idRoom).setFlagfree(1);
         }
-        if(!(clientService.findById(idClient).getStatus().equals(Status.BANNED))){
+        if(!(clientService.findByLoginAndEmail(login,email).getStatus().equals(Status.BANNED))){
         return  bookingRepository.save(booking);
     }
         else{
@@ -69,15 +67,14 @@ public class BookingService {
         }
     }
     @Transactional
-    public Rooms takeBooking(int idNewClient,int roomsId) throws ParseException {
+    public Rooms takeBooking(String newClientLogin,String newClientEmail,int roomsId, Date begTerm,Date endTerm,int price) {
     Rooms rooms =roomsService.findByRoomsId(roomsId);
-        Client clientNewLessee=clientService.findById(idNewClient);
-        Booking booking= new Booking(new SimpleDateFormat("yyyy-MM-dd").parse("2023-02-04"),
-                new SimpleDateFormat("yyyy-MM-dd").parse("2023-02-24"),23000,clientNewLessee);
+        Client clientNewLessee=clientService.findByLoginAndEmail(newClientLogin,newClientEmail);
+        Booking booking= new Booking(begTerm,endTerm,price,clientNewLessee);
         Booking booking1= bookingRepository.save(booking);
         rooms.setBooking(booking1);
         rooms.setFlagfree(0);
-        if(!(clientService.findById(idNewClient).getStatus().equals(Status.BANNED))){
+        if(!(clientService.findByLoginAndEmail(newClientLogin,newClientEmail).getStatus().equals(Status.BANNED))){
         return roomsService.save(rooms);
         }
         else{

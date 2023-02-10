@@ -3,18 +3,15 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.sepparalex.accomodrental.error.*;
 import ru.sepparalex.accomodrental.models.Booking;
 import ru.sepparalex.accomodrental.models.Rooms;
 import ru.sepparalex.accomodrental.services.BookingService;
-
-import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
-import java.util.NoSuchElementException;
+
 
 @RestController
 @AllArgsConstructor
@@ -41,7 +38,6 @@ public class BookingController {
     return new ErrorMessage(exc.getMessage(),HttpStatus.NOT_FOUND);
    }
 
-
     @GetMapping("/before")
     @PreAuthorize("hasAnyAuthority('booking:read')")
     public List<Booking> getByDateBefore(@RequestParam ("value") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE)Date value){
@@ -67,15 +63,15 @@ public class BookingController {
         log.error(exc.getMessage());
         return new ErrorMessage(exc.getMessage(),HttpStatus.NOT_FOUND);
     }
-
-    @PostMapping("{id}/new/{idRoom}/{exist}/{cityName}/{countryName}")
-    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) and hasAuthority('booking:write')")
-    public Booking createBooking(@PathVariable("id") int id,@PathVariable int exist,
+    @PostMapping("{login}/{email}/new/{idRoom}/{exist}/{cityName}/{countryName}")
+    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #login,#passwd) and hasAuthority('booking:write')")
+    public Booking createBooking(@PathVariable("login") String login, @PathVariable("email") String email,
+                                 @PathVariable int exist,
                                  @PathVariable int idRoom,
                                  @PathVariable String cityName,
                                  @PathVariable String countryName,
                                  @RequestBody Booking booking){
-       return bookingService.save(id,booking,idRoom,exist,cityName,countryName);
+       return bookingService.save(login,email,booking,idRoom,exist,cityName,countryName);
     }
     @ExceptionHandler
     @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -83,10 +79,13 @@ public class BookingController {
         log.error(exc.getMessage());
         return new ErrorMessage(exc.getMessage(),HttpStatus.NOT_FOUND);
     }
-
-    @PostMapping("{id}/get/")
-    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #id) or hasAuthority('booking:write')")
-    public Rooms takeBooking(@PathVariable("id") int id,@RequestParam ("roomsId") int roomsId)
-            throws ParseException {return bookingService.takeBooking(id,roomsId);
+    @PostMapping("{login}/{email}/get/")
+    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #login,#passwd) or hasAuthority('booking:write')")
+    public Rooms takeBooking(@PathVariable("login") String login, @PathVariable("email") String email,
+                             @RequestParam ("roomsId") int roomsId,
+                             @RequestParam ("begTerm") Date begTerm,
+                             @RequestParam ("endTerm") Date endTerm,
+                             @RequestParam ("price") int price){
+          return bookingService.takeBooking(login,email,roomsId,begTerm,endTerm,price);
     }
 }

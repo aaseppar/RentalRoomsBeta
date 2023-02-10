@@ -12,10 +12,7 @@ import java.util.Optional;
 public interface ClientRepository extends JpaRepository<Client,Integer> {
 
     Optional<Client> findByEmail(String email);
-    @Query("select c from Client c where c.userfullname = ?1")
-    Client findByUserfullnameInoreCase(String name);
-
-    @Query("select c from Client c where c.city.id = ?1")
-    Client findByCityId(int cityId);
+    @Query("select c from Client c where c.login=?1 and c.email=?2")
+    Client findByLoginAndEmail(String login, String email);
 
 }

@@ -5,6 +5,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import ru.sepparalex.accomodrental.error.NoClientSaveByEmailException;
+import ru.sepparalex.accomodrental.error.hasNoUserIdByEmailException;
 import ru.sepparalex.accomodrental.models.Client;
 import ru.sepparalex.accomodrental.repositories.ClientRepository;
 
@@ -25,12 +27,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return SecurityUser.fromUser(client);
     }
     //Authentication-информация о текущем клиенте
-    public boolean hasUserId(Authentication authentication, int userId) {
-        Client client = clientRepository.findByEmail(authentication.getName()).orElseThrow();
-        return client.getId() == userId;
+    public boolean hasUserId(Authentication authentication, String loginClient, String emailClient) {
+        Client client =clientRepository.findByLoginAndEmail(loginClient,emailClient);
+        String email=authentication.getName();
+        return client.getEmail().equals(email);
     }
-    public boolean hasNoUserId(Authentication authentication, int userId) {
-        Client client = clientRepository.findByEmail(authentication.getName()).orElseThrow();
-        return client.getId() != userId;
+
+    public boolean hasNoUserId(Authentication authentication,String loginClient, String emailClient) {
+        Client client=clientRepository.findByLoginAndEmail(loginClient,emailClient);
+        if(client==null){
+            throw new hasNoUserIdByEmailException("Client not found with this email");
+        }
+        String email=authentication.getName();
+        return !(emailClient.equals(email));
     }
 }

@@ -29,10 +29,11 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-    public Client findById(int id){
-      return clientRepository.findById(id).orElseThrow(()->new NoClientByIdException("There isn't Client with that Id"));
+    public Client findByLoginAndEmail(String login, String email){
+      Client client= clientRepository.findByLoginAndEmail(login,email);
+      if(client==null)   throw new NoClientByLoginAndEmailException("There isn't Client with that Login and Email");
+      else return client;
     }
-
 
     @Transactional
     public Client save(Client client,int flagChange){
@@ -137,12 +138,26 @@ public class ClientService {
         return clientRepository.save(client);
      }
 
-    public Client findByFullName(String clientFullName) {
-        Client client=clientRepository.findByUserfullnameInoreCase(clientFullName);
-        if(client==null){
-          throw new NoClientByFullNameException("There isn't Client with that FullName");
+    public Client setClientStatus(Client client, Status status) {
+        if(status.equals(Status.BANNED)) {// will to banned
+            if((!(client.getRole().equals(Role.ADMIN)))&&(!(client.getRole().equals(Role.SUPERADMIN)))
+                    &&(client.getRating().getValue()<=1)){
+                client.setStatus(status);
+            }
+            else {
+                throw new NoClientSaveByStatusADMIN("This client is not allowed to change status because it is ADMIN or SUPERADMIN or have rating more 1");
+            }
+
         }
-        else return client;
+        else if(status.equals(Status.ACTIVE)){ // will to activated
+            if (client.getRating().getValue() >= 2)  {
+                client.setStatus(status);
+            }
+            else{
+                throw new NoClientSaveByStatusHighRating("This client is not allowed to change status because it have rating less 2");
+            }
+        }
+        return client;
     }
 }
 
