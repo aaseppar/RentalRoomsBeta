@@ -14,6 +14,9 @@ public class CountryService {
     public List<Country> findAll(){
         return countryRepository.findAll();
     }
+    public Country findByName(String name){
+        return countryRepository.findByName(name);
+    }
     @Transactional
     public Country save(Country country){
         return countryRepository.save(country);

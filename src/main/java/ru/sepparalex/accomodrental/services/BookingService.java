@@ -23,8 +23,10 @@ public class BookingService {
     public List<Booking> findAll(){
         return bookingRepository.findAll();
     }
-    public Booking findById(int id){
-        return bookingRepository.findById(id).orElseThrow(()->new NoBookingByIdException("There aren't Booking with that Id"));
+    public Booking findOwnBooking(String login,String email){
+        Booking booking= bookingRepository.findOwnBooking(login,email);
+        if (booking==null) throw new NoBookingByIdException("There aren't Booking with those login and email");
+        else return booking;
     }
     public List<Booking> findBeforeDate(Date value) {
         List<Booking> bookingList= bookingRepository.findByEndtermBefore(value);
@@ -41,22 +43,31 @@ public class BookingService {
         else return bookingList;
     }
     @Transactional
-    public Booking save(String login,String email,Booking booking,int idRoom,int exist,String cityName,String countryName) {
-        if(exist==0){
-
+    public Booking save(String login,String email,Booking booking,int idRoom,
+                        int exist,String cityName,String countryName) {
+        if(exist==0){ // Make new booking with new rooms
+            City city1=null;
+            if((cityService.findByName(cityName)==null)&&(countryService.findByName(countryName)==null)) {// Not exist that city and country
             Country country=new Country(countryName);
             country=countryService.save(country);
             City city= new City(cityName,country);
-            city=cityService.save(city);
-            booking.getClient().setCity(city);
-            Rooms roomNew=new Rooms(3,1, booking.getClient(),city);
+            city1=cityService.save(city);
+            }
+            else if((cityService.findByName(cityName)==null)&&(countryService.findByName(countryName)!=null)) { //city not exist bat country exist
+                Country country=countryService.findByName(countryName);
+                City city= new City(cityName,country);
+                city1=cityService.save(city);
+            }
+            else if((cityService.findByName(cityName)!=null)&&(countryService.findByName(countryName)!=null)) {//city exist and country exist
+                city1=cityService.findByName(cityName);
+            }
+
+            booking.getClient().setCity(city1);
+            Rooms roomNew=new Rooms(3,1, booking.getClient(),city1);
             roomNew=roomsService.save(roomNew);
             booking.setRoomsList(Collections.singletonList(roomNew));
-            //booking.getRoomsList().add(roomNew);
-            //booking.getClient().setListBooking(Collections.singletonList(booking));
-            //booking.getClient().getListBooking().add(booking);
-           }
-        if(exist==1){
+        }
+        if(exist==1){ // Rooms already in booking and making free
            booking.getRoomsList().get(idRoom).setFlagfree(1);
         }
         if(!(clientService.findByLoginAndEmail(login,email).getStatus().equals(Status.BANNED))){

@@ -11,6 +11,7 @@ import java.util.List;
 public interface BookingRepository extends JpaRepository<Booking,Integer> {
 List<Booking> findByEndtermBefore(Date value);
 List<Booking>  findByBegintermAfter(Date value);
-    @Query("select b from Booking b where b.client.id = ?1")
-    Booking findByClientId(int id);
+    @Query("select b from Booking b where b.client.login = ?1 and b.client.email = ?2")
+    Booking findOwnBooking(String login,String email);
+
 }

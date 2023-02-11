@@ -4,5 +4,5 @@ import org.springframework.stereotype.Repository;
 import ru.sepparalex.accomodrental.models.Country;
 @Repository
 public interface CountryRepository extends JpaRepository<Country,Integer> {
-
+public Country findByName(String name);
 }

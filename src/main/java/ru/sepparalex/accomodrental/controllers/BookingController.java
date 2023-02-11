@@ -25,15 +25,15 @@ public class BookingController {
    List<Booking> booking=bookingService.findAll();
    return booking;
  }
-
-    @GetMapping("{id}")
-    @PreAuthorize("hasAnyAuthority('booking:write')")
-    public Booking getById(@PathVariable("id") int id){
-    return bookingService.findById(id);
+    @GetMapping("/{login}/{email}") //see own booking
+    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #login, #email) and hasAuthority('booking:write')")
+    public Booking getOwnBooking(@PathVariable("login") String login,
+                                 @PathVariable("email") String email){
+    return bookingService.findOwnBooking(login,email);
     }
     @ExceptionHandler
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorMessage handleNoBookinByID(NoBookingByIdException exc){
+    public ErrorMessage handleNoOwnBooking(NoBookingByIdException exc){
      log.error(exc.getMessage());
     return new ErrorMessage(exc.getMessage(),HttpStatus.NOT_FOUND);
    }
@@ -63,8 +63,8 @@ public class BookingController {
         log.error(exc.getMessage());
         return new ErrorMessage(exc.getMessage(),HttpStatus.NOT_FOUND);
     }
-    @PostMapping("{login}/{email}/new/{idRoom}/{exist}/{cityName}/{countryName}")
-    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #login,#passwd) and hasAuthority('booking:write')")
+    @PostMapping("/{login}/{email}/new/{idRoom}/{exist}/{cityName}/{countryName}")
+    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #login,#email) and hasAuthority('booking:write')")
     public Booking createBooking(@PathVariable("login") String login, @PathVariable("email") String email,
                                  @PathVariable int exist,
                                  @PathVariable int idRoom,
@@ -80,11 +80,11 @@ public class BookingController {
         return new ErrorMessage(exc.getMessage(),HttpStatus.NOT_FOUND);
     }
     @PostMapping("{login}/{email}/get/")
-    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #login,#passwd) or hasAuthority('booking:write')")
+    @PreAuthorize("@userDetailsServiceImpl.hasUserId(authentication, #login,#email) and hasAuthority('booking:write')")
     public Rooms takeBooking(@PathVariable("login") String login, @PathVariable("email") String email,
                              @RequestParam ("roomsId") int roomsId,
-                             @RequestParam ("begTerm") Date begTerm,
-                             @RequestParam ("endTerm") Date endTerm,
+                             @RequestParam ("begTerm") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) Date begTerm,
+                             @RequestParam ("endTerm") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) Date endTerm,
                              @RequestParam ("price") int price){
           return bookingService.takeBooking(login,email,roomsId,begTerm,endTerm,price);
     }
