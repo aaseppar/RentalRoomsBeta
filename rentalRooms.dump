@@ -202,7 +202,6 @@ COPY public.booking (id, beginterm, endterm, price, clientid) FROM stdin;
 3	2022-06-01	2022-07-15	23000	3
 4	2022-08-20	2022-09-20	12000	4
 5	2023-01-10	2023-01-25	12000	5
-20	2023-02-04	2023-02-24	23000	6
 \.
 
 
@@ -219,6 +218,7 @@ COPY public.city (id, name, countryid) FROM stdin;
 6	Buda	6
 7	Erusalem	7
 8	Pest	6
+46	Toronto	27
 \.
 
 
@@ -227,14 +227,15 @@ COPY public.city (id, name, countryid) FROM stdin;
 --
 
 COPY public.client (id, userfullname, login, passwd, birthday, email, ratingid, cityid, role, status) FROM stdin;
-4	Sergio Franco	ser	$2a$12$Q25WXZ0EuGW8n9YCqnZBC.aSaQ49J444lRQEpNw5hfKfxVW02PjjK	04.07.1982	ser@ukrain.uk	4	4	USER	ACTIVE
+20	Izia Bronstain	izia	$2a$10$Q6lhzDokKniC/USgNPErR.iiyKtpcaClhIY4ksOm00RrVKkp.KBp.	09.11.1982	izi@erusalem.iz	4	7	USER	ACTIVE
+4	Sergio Franco	ser	$2a$12$Q25WXZ0EuGW8n9YCqnZBC.aSaQ49J444lRQEpNw5hfKfxVW02PjjK	04.07.1982	ser@ukrain.uk	4	46	USER	ACTIVE
 12	Abram Cukerman	abram	$2a$12$MpHHR89KqYqbYw.h2E1BC.PO1xI.ry2buFfB5z2mtCQDyHvs9WFZy	05.12.1989	abr@erusalem.iz	4	8	USER	ACTIVE
+6	Moise Blum	moi	$2a$12$GmRNBqaBsW0m.LTCQkYTK.CU9YZQCte4gqoAxAgSVh1s36IrlRw8.	04.07.1985	moi@izrael.com	3	6	USER	ACTIVE
 5	Gans Shmulke	gans	$2a$10$RNhGdlha9G1TfiSrbnr5O.gLxuO7xTzTCBhq0l50qsBO/Fu1pTmWO	05.07.1984	gansign@front.gm	4	5	ADMIN	ACTIVE
 3	Trumm Sanderson	troika	$2a$10$lCwRc5.8a8FnINcl7zinBu/XxBNrM1h92SkXqXaPMPk4cELtRilZa	03.06.1981	dedmoroz@holod.nor	4	3	USER	ACTIVE
 2	Bjisko Mrazek	mra	$2a$12$hFhp.NKmWcipcmiOjC6MDelRAyyqoiHCRMzsI3N1fdPqWfpfgpA2e	01.07.1980	mrazek@kurnik.pol	4	2	USER	ACTIVE
 1	Sara Connor	sara	$2a$12$05iXrzrVTmZfeapa9epCPO3rL8dB73NtwEEEEh184tuGX2FwEKU5y	02.08.1974	sara@gmail.com	4	1	SUPERADMIN	ACTIVE
-6	Moise Blum	moi	$2a$10$AO8RIQRDedNKUshUTsj0y.mYJGuPwQCEjyBVdvj.t3XnVV0xF92Gi	04.07.1985	moi@izrael.com	3	6	USER	ACTIVE
-20	Izia Bronstain	izia	$2a$12$H9UOZgwqMcc7IbJHPuBMw.oBUrMIeAOgsy4A0R.auWuDGO7K5Nj9m	09.11.1982	izi@erusalem	4	7	USER	ACTIVE
+30	Bob Stainmaier	bob	$2a$10$qlyAgCdqOwDuxi6g2pclu.LS5RwH8jw00luObyp68yFkG7qIKbCpy	05.12.1986	bobby@samarro.gov	4	5	ADMIN	ACTIVE
 \.
 
 
@@ -250,6 +251,7 @@ COPY public.country (id, name) FROM stdin;
 5	Germany
 6	Hungary
 7	Izrael
+27	Canada
 \.
 
 
@@ -272,10 +274,10 @@ COPY public.rating (id, value) FROM stdin;
 
 COPY public.rooms (id, rating, clientid, flagfree, cityid, bookingid) FROM stdin;
 1	3	1	0	1	1
-2	3	2	0	2	2
 4	4	4	0	4	3
-3	4	3	0	3	20
 5	3	5	1	5	\N
+3	4	3	1	3	\N
+2	3	2	1	46	\N
 \.
 
 
@@ -283,28 +285,28 @@ COPY public.rooms (id, rating, clientid, flagfree, cityid, bookingid) FROM stdin
 -- Name: booking_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.booking_id_seq', 20, true);
+SELECT pg_catalog.setval('public.booking_id_seq', 26, true);
 
 
 --
 -- Name: city_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.city_id_seq', 45, true);
+SELECT pg_catalog.setval('public.city_id_seq', 46, true);
 
 
 --
 -- Name: client_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.client_id_seq', 28, true);
+SELECT pg_catalog.setval('public.client_id_seq', 30, true);
 
 
 --
 -- Name: country_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.country_id_seq', 26, true);
+SELECT pg_catalog.setval('public.country_id_seq', 27, true);
 
 
 --
@@ -318,7 +320,7 @@ SELECT pg_catalog.setval('public.rating_id_seq', 5, true);
 -- Name: rooms_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.rooms_id_seq', 16, true);
+SELECT pg_catalog.setval('public.rooms_id_seq', 20, true);
 
 
 --

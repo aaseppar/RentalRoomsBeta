@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add check City and Country exist">
+    <list default="true" id="6d70ada7-db8a-4e64-b962-f02e57fd05ac" name="Changes" comment="Add check Date while treat booking take">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/controllers/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sepparalex/accomodrental/services/BookingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +251,9 @@
       <workItem from="1676012552265" duration="331000" />
       <workItem from="1676012904633" duration="22828000" />
       <workItem from="1676094761117" duration="12883000" />
-      <workItem from="1676182906720" duration="1421000" />
+      <workItem from="1676182906720" duration="1881000" />
+      <workItem from="1676185025116" duration="182000" />
+      <workItem from="1676185555701" duration="74000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1673680934841</created>
@@ -528,7 +528,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676112988572</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Add check Date while treat booking take">
+      <created>1676184591473</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1676184591473</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +553,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add PATCH for change client's status" />
     <MESSAGE value="Add GET mapping for search rooms by city name" />
     <MESSAGE value="Add GET mapping for search rooms by date and price" />
     <MESSAGE value="Add GET mapping rooms by country, bat not working, WTF?" />
@@ -571,6 +577,7 @@
     <MESSAGE value="Add crypt passwd where change it" />
     <MESSAGE value="Add check Client by login and email" />
     <MESSAGE value="Add check City and Country exist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add check City and Country exist" />
+    <MESSAGE value="Add check Date while treat booking take" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add check Date while treat booking take" />
   </component>
 </project>
