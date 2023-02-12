@@ -1,10 +1,7 @@
 package ru.sepparalex.accomodrental.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.sepparalex.accomodrental.error.NoBookingByAfterException;
-import ru.sepparalex.accomodrental.error.NoBookingByBeforeException;
-import ru.sepparalex.accomodrental.error.NoBookingByIdException;
-import ru.sepparalex.accomodrental.error.NoBookingSaveByClientIdException;
+import ru.sepparalex.accomodrental.error.*;
 import ru.sepparalex.accomodrental.models.*;
 import ru.sepparalex.accomodrental.repositories.BookingRepository;
 import javax.transaction.Transactional;
@@ -85,6 +82,10 @@ public class BookingService {
         Booking booking1= bookingRepository.save(booking);
         rooms.setBooking(booking1);
         rooms.setFlagfree(0);
+        if(begTerm.after(endTerm)){
+            throw new NoTakeBookingByWrongDateException("Those dates input is wrong!");
+        }
+
         if(!(clientService.findByLoginAndEmail(newClientLogin,newClientEmail).getStatus().equals(Status.BANNED))){
         return roomsService.save(rooms);
         }

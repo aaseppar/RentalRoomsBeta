@@ -88,4 +88,11 @@ public class BookingController {
                              @RequestParam ("price") int price){
           return bookingService.takeBooking(login,email,roomsId,begTerm,endTerm,price);
     }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+    public ErrorMessage handleNoTakeBookingByWrongDate(NoTakeBookingByWrongDateException exc){
+        log.error(exc.getMessage());
+        return new ErrorMessage(exc.getMessage(),HttpStatus.NOT_ACCEPTABLE);
+    }
 }
