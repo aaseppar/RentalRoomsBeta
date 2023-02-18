@@ -5,7 +5,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.sepparalex.accomodrental.error.NoClientSaveByEmailException;
 import ru.sepparalex.accomodrental.error.hasNoUserIdByEmailException;
 import ru.sepparalex.accomodrental.models.Client;
 import ru.sepparalex.accomodrental.repositories.ClientRepository;
@@ -19,6 +18,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetailsServiceImpl(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
